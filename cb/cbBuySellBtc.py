@@ -8,8 +8,7 @@
           https://developers.coinbase.com/docs/wallet/guides/buy-sell
           --> Python 
           
-          Found several inconsistencies, and typos in tutorial.
-          Run this to see.
+          Found inconsistencies, and typos in tutorial. Run this to see.
           
   
 @license:   (C) 2016 Andreas Krueger

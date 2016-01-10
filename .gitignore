@@ -1,3 +1,10 @@
+# Added manually:
+cbPersonal_ME.py
+.gitignore
+.project
+.pydevproject
+currencies2btc.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
