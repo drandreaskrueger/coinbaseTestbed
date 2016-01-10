@@ -1,5 +1,4 @@
 '''
-
 @title    cbSendRequest.py
   
 @purpose  several errors on tutorial page:

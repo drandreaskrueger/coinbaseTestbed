@@ -4,7 +4,6 @@
 @purpose  Testing the coinbase Python API,
           and reporting errors in the tutorial
 
-
 @summary: Learning the coinbase API, in depth.
 
           The following is partly from the tutorial pages.
