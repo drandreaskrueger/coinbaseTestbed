@@ -187,22 +187,10 @@ class cbBuySellBtc(cb):
 
 """
 
-
-# tutorial inconsistent:
-# https://developers.coinbase.com/docs/wallet/guides/price-data
-# "As you can see above, Lawnmowers app displays"
-# --> where is "above" ?     
-
-
-# issue: in 'get_spot_price' Gold is supported, but unanswered!
-# 0.00 XAU (Gold (Troy Ounce))
-
-    
-    
+   
 if __name__ == "__main__":
   C=cbBuySellBtc()
   
-  """
   C.tableLayout(C.get_payment_methods())
   pause()
   
@@ -213,9 +201,6 @@ if __name__ == "__main__":
   pause()
   print "\nNow again, with different thresholds:"
   C.buyAndSellBtc(20000,50000)
-  pause()
+ 
   
-  C.spotPrice()
-  """  
-  C.allCurrencies()
   
