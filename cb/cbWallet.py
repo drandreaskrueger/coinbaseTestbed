@@ -166,7 +166,8 @@ class cb (object):
   def idsOfPendingTx(self, account):
     "of all tx of acc, return the ids of those with status pending"
     txs=account.get_transactions()
-    return [(tx["id"],str(tx["amount"])) for tx in txs.data if tx["status"]=="pending"]
+    return [(tx["id"],str(tx["amount"]),tx["type"]) 
+            for tx in txs.data if tx["status"]=="pending"]
   
   def showPending(self):
     print "\npending transactions on all my accounts:"
@@ -234,7 +235,7 @@ def pause():
   
 def tryWalletFunctions():
   C=cb()
-
+  
   print C
   C.methods()
 
