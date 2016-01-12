@@ -204,8 +204,6 @@ def sendToSecondAccount(C, name=ACCOUNTNAME):
   result=C.sendMoneyTo(account, amount, description )
   print "Sending - done. Result: %s\n%s" % (type(result), result)
 
-
-
 def listOfTransactions(C):
   print "\nFinding out what kind of beast a list of transactions actually is:"
   
@@ -228,10 +226,15 @@ def listOfTransactions(C):
   print "This does work too:"
   print [tx["id"] for tx in txs.data]
 
-
-
 def pause():
   raw_input("\nPress Enter to continue...")
+  
+def showAllTransactionsDetailsWithPause(account):
+  print "Show ALL transactions of account %s:\n" % account["id"]
+  for tx in account.get_transactions().data:
+    print tx["amount"], tx["description"], tx["id"]
+    print tx
+    pause()
   
 def tryWalletFunctions():
   C=cb()
@@ -255,21 +258,19 @@ def tryWalletFunctions():
   
   C.printLastTxOnPrimary()
   pause()
-
+  
   C.refreshAndShowPrimary()  
     
   listOfTransactions(C)
   pause()
   
   C.showPending()
-
   
+  showAllTransactionsDetailsWithPause( C.get_primary_Account() )
  
 
 if __name__ == "__main__":
 
   tryWalletFunctions()
-  
-
   
 
