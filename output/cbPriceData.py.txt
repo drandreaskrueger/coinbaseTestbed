@@ -1,0 +1,50 @@
+
+Get spot price of BTC in given currency.
+
+wrong syntax in tutorial:  client.get_spot_price({currency: currency_code})
+exception caught:  <type 'exceptions.NameError'> global name 'currency' is not defined
+
+correct syntax:
+client.get_spot_price(currency=currency_code)
+
+Current bitcoin price in USD: 10000.00 USD
+Current bitcoin price in EUR: 9213.02 EUR
+Current bitcoin price in CAD: 14242.41 CAD
+Current bitcoin price in YEN: 1176426.00 JPY
+Current bitcoin price in XAU: 9 XAU
+
+Generating quite a cool table, please be patient. Getting the data ...
+1 Bitcoin = ...
+... in UYU ('Uruguayan Peso'): 305892.70 UYU ! ... in UZS ('Uzbekistani Som'): 28182349.86 UZS ! ... in VEF ('Venezuelan Bol\xc3\xadvar'): 63205.20 VEF !
+... in VND ('Vietnamese \xc4\x90\xe1\xbb\x93ng'): 224257500 VND ! ... in VUV ('Vanuatu Vatu'): 1123187 VUV ! ... in WST ('Samoan Tala'): 26187.26 WST !
+... in XAF ('Central African Cfa Franc'): 6051387.78 XAF ! ... in XAG ('Silver (Troy Ounce)'): 725 XAG ! ... in XAU ('Gold (Troy Ounce)'): 9 XAU !
+... in XCD ('East Caribbean Dollar'): 27010.20 XCD ! ... in XDR ('Special Drawing Rights'): 7234 XDR ! ... in XOF ('West African Cfa Franc'): 6067343.58 XOF !
+... in XPF ('Cfp Franc'): 1097743.50 XPF ! ... in YER ('Yemeni Rial'): 2149880.00 YER ! ... in ZAR ('South African Rand'): 165959.70 ZAR !
+... in ZMK ('Zambian Kwacha'): 52530752.55 ZMK ! ... in ZMW ('Zambian Kwacha'): 110518.50 ZMW ! ... in ZWL ('Zimbabwean Dollar'): 3223227.75 ZWL !
+
+Sort by price ... done. Writing to file (because of unicode characters) ... done.
+
+Have you ever seen the world currencies in this cool order?
+
+ 224257500.00 VND (Vietnamese �?ồng)
+  52530752.55 ZMK (Zambian Kwacha)
+  28182349.86 UZS (Uzbekistani Som)
+   6067343.58 XOF (West African Cfa Franc)
+   6051387.78 XAF (Central African Cfa Franc)
+   3223227.75 ZWL (Zimbabwean Dollar)
+   2149880.00 YER (Yemeni Rial)
+   1123187.00 VUV (Vanuatu Vatu)
+   1097743.50 XPF (Cfp Franc)
+    305892.70 UYU (Uruguayan Peso)
+    165959.70 ZAR (South African Rand)
+    110518.50 ZMW (Zambian Kwacha)
+     63205.20 VEF (Venezuelan Bolívar)
+     27010.20 XCD (East Caribbean Dollar)
+     26187.26 WST (Samoan Tala)
+      7234.00 XDR (Special Drawing Rights)
+       725.00 XAG (Silver (Troy Ounce))
+         9.00 XAU (Gold (Troy Ounce))
+
+(shortened table, due to debug=True)
+
+open 'currencies2btc.txt' to see same but with unicode characters

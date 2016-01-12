@@ -1,0 +1,241 @@
+<__main__.cb object at 0x00000000038934A8>
+
+all method names of coinbase.wallet.client.Client():
+API_VERSION
+BASE_API_URI
+VERIFY_SSL
+__class__
+__delattr__
+__dict__
+__doc__
+__format__
+__getattribute__
+__hash__
+__init__
+__module__
+__new__
+__reduce__
+__reduce_ex__
+__repr__
+__setattr__
+__sizeof__
+__str__
+__subclasshook__
+__weakref__
+_build_session
+_create_api_uri
+_delete
+_get
+_handle_response
+_make_api_object
+_post
+_put
+_request
+buy
+cached_callback_public_key
+callback_public_key
+cancel_request
+commit_buy
+commit_deposit
+commit_sell
+commit_withdrawal
+complete_request
+create_account
+create_address
+create_checkout
+create_checkout_order
+create_order
+delete_account
+deposit
+get_account
+get_accounts
+get_address
+get_address_transactions
+get_addresses
+get_auth_info
+get_buy
+get_buy_price
+get_buys
+get_checkout
+get_checkout_orders
+get_checkouts
+get_currencies
+get_current_user
+get_deposit
+get_deposits
+get_exchange_rates
+get_historic_prices
+get_merchant
+get_notification
+get_notifications
+get_order
+get_orders
+get_payment_method
+get_payment_methods
+get_primary_account
+get_sell
+get_sell_price
+get_sells
+get_spot_price
+get_time
+get_transaction
+get_transactions
+get_user
+get_withdrawal
+get_withdrawals
+refund_order
+request_money
+resend_request
+sell
+send_money
+session
+set_primary_account
+transfer_money
+update_account
+update_current_user
+verify_callback
+withdraw
+
+get all accounts, for each show balance, and transactions:
+
+USD Wallet: 0.00 USD
+number of transactions: 0
+
+BTC Wallet: 0.10000000 BTC
+number of transactions: 13
+buy BTC 0.00100000
+sell BTC -0.00100000
+buy BTC 0.00100000
+sell BTC -0.00100000
+buy BTC 0.00100000
+sell BTC -0.00100000
+buy BTC 0.00100000
+sell BTC -0.00100000
+buy BTC 0.00100000
+sell BTC -0.00100000
+buy BTC 0.00100000
+sell BTC -0.00100000
+send BTC 0.10000000
+
+
+Press Enter to continue...
+
+create account, and as access test ...show that it has an empty balance.
+created: 'lalala' 0.00000000 BTC
+{
+  "balance": {
+    "amount": "0.00000000", 
+    "currency": "BTC"
+  }, 
+  "created_at": "2016-01-12T21:18:16Z", 
+  "currency": "BTC", 
+  "id": "e025d3a6-b680-5377-8a1b-5dd8677f62ee", 
+  "name": "lalala", 
+  "native_balance": {
+    "amount": "0.00", 
+    "currency": "EUR"
+  }, 
+  "primary": false, 
+  "resource": "account", 
+  "resource_path": "/v2/accounts/e025d3a6-b680-5377-8a1b-5dd8677f62ee", 
+  "type": "wallet", 
+  "updated_at": "2016-01-12T21:18:16Z"
+}
+
+Press Enter to continue...
+
+Delete all accounts that are empty (no data):
+
+lalala: 0.00000000 BTC = found EMPTY account! (id=e025d3a6-b680-5377-8a1b-5dd8677f62ee) Trying to delete now:
+Done. Deleted.
+
+USD Wallet: 0.00 USD = non-empty or fiat account (id=ac93d157-0183-5a32-bc9e-25905bfd7fc0), continue.
+BTC Wallet: 0.10000000 BTC = non-empty or fiat account (id=39af251d-a6f3-52d6-b6a8-50f998c3f383), continue.
+
+Press Enter to continue...
+
+Sending to second account of mine:
+
+
+create account, and as access test ...show that it has an empty balance.
+created: 'piggybank' 0.00000000 BTC
+piggybank BTC 0.00000000 (2016-01-12T21:18:29Z to 2016-01-12T21:18:29Z)
+
+(from primary account) send to (newly created address on) given account
+newly created address:  mr81EHqB3MfgV5xA1CU4W28aBHj2XgjFWB
+Sending - done. Result: <class 'coinbase.wallet.model.Transaction'>
+{
+  "amount": {
+    "amount": "-0.00700000", 
+    "currency": "BTC"
+  }, 
+  "created_at": "2016-01-12T21:18:30Z", 
+  "description": "for being wonderful!", 
+  "id": "f0c51d16-caa3-511d-80ba-032c7226bd85", 
+  "instant_exchange": false, 
+  "native_amount": {
+    "amount": "-64.47", 
+    "currency": "EUR"
+  }, 
+  "resource": "transaction", 
+  "resource_path": "/v2/accounts/39af251d-a6f3-52d6-b6a8-50f998c3f383/transactions/f0c51d16-caa3-511d-80ba-032c7226bd85", 
+  "status": "pending", 
+  "to": {
+    "id": "26ecfd30-a652-50de-964d-46c8b5c8e375", 
+    "resource": "account", 
+    "resource_path": "/v2/accounts/26ecfd30-a652-50de-964d-46c8b5c8e375"
+  }, 
+  "type": "transfer", 
+  "updated_at": "2016-01-12T21:18:30Z"
+}
+
+Press Enter to continue...
+
+Get all transactions ...  view the last tx:
+{
+  "amount": {
+    "amount": "-0.00700000", 
+    "currency": "BTC"
+  }, 
+  "created_at": "2016-01-12T21:18:30Z", 
+  "description": "for being wonderful!", 
+  "id": "f0c51d16-caa3-511d-80ba-032c7226bd85", 
+  "instant_exchange": false, 
+  "native_amount": {
+    "amount": "-64.47", 
+    "currency": "EUR"
+  }, 
+  "resource": "transaction", 
+  "resource_path": "/v2/accounts/39af251d-a6f3-52d6-b6a8-50f998c3f383/transactions/f0c51d16-caa3-511d-80ba-032c7226bd85", 
+  "status": "pending", 
+  "to": {
+    "id": "26ecfd30-a652-50de-964d-46c8b5c8e375", 
+    "resource": "account", 
+    "resource_path": "/v2/accounts/26ecfd30-a652-50de-964d-46c8b5c8e375"
+  }, 
+  "type": "transfer", 
+  "updated_at": "2016-01-12T21:18:31Z"
+}
+
+Press Enter to continue...
+
+Refresh ... primary account 'BTC Wallet': 0.09300000 BTC
+
+Finding out what kind of beast a list of transactions actually is:
+get all transactions from primary account ...
+Done. Trying to iterate:
+exception caught:  <type 'exceptions.TypeError'> string indices must be integers, not str
+inconsistent?
+[<type 'str'>]  versus  <class 'coinbase.wallet.model.Transaction'> and <class 'coinbase.wallet.model.Transaction'>
+
+This does work:
+[u'f0c51d16-caa3-511d-80ba-032c7226bd85', u'6b01d41f-04f2-5423-aab6-fbca2469b55a', u'de058572-8724-512e-831d-cfffab824cdc', u'59e1ce23-e869-5ba2-b2b1-9c677e0855e9', u'47348eec-c18e-5af5-b6c3-5b677b40d3fe', u'f319783c-fe16-533f-807e-c462be88f80e', u'b6f2e752-755c-5f7f-9f26-1515cce7f02b', u'919f939a-a2de-5a17-b9b2-7f0dbb75b836', u'62aa89f1-f3b8-5f25-bd93-bd7103b2a0e2', u'f40a5e94-7870-582e-a2ed-822782630d6c', u'def85168-a23e-56cb-930c-6dcacc913ed3', u'27e31944-4d2d-572c-9f2f-118383c50fa0', u'91fb4198-b30e-588c-a386-16adc2fd7760', u'1fe5e2b5-8b86-5235-9912-633d6f1cc85f']
+This does work too:
+[u'f0c51d16-caa3-511d-80ba-032c7226bd85', u'6b01d41f-04f2-5423-aab6-fbca2469b55a', u'de058572-8724-512e-831d-cfffab824cdc', u'59e1ce23-e869-5ba2-b2b1-9c677e0855e9', u'47348eec-c18e-5af5-b6c3-5b677b40d3fe', u'f319783c-fe16-533f-807e-c462be88f80e', u'b6f2e752-755c-5f7f-9f26-1515cce7f02b', u'919f939a-a2de-5a17-b9b2-7f0dbb75b836', u'62aa89f1-f3b8-5f25-bd93-bd7103b2a0e2', u'f40a5e94-7870-582e-a2ed-822782630d6c', u'def85168-a23e-56cb-930c-6dcacc913ed3', u'27e31944-4d2d-572c-9f2f-118383c50fa0', u'91fb4198-b30e-588c-a386-16adc2fd7760', u'1fe5e2b5-8b86-5235-9912-633d6f1cc85f']
+
+Press Enter to continue...
+
+pending transactions on all my accounts:
+piggybank [(u'f51dcf1c-9ff3-51c7-807c-eabf3186734b', 'BTC 0.00700000')]
+USD Wallet []
+BTC Wallet [(u'f0c51d16-caa3-511d-80ba-032c7226bd85', 'BTC -0.00700000')]

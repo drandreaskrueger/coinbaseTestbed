@@ -85,12 +85,18 @@ class cb (object):
       balance = account.balance
       print "%s: %s %s" % (account.name, balance.amount, balance.currency),
       
-      if account.get_transactions().data == []:
-        print "= found EMPTY account! id=", account["id"]
-        print account.get_transactions()
-        self.client.delete_account(account["id"])
-        print "Done. Deleted.\n"
-      else: print "= non-empty, continue."
+      if account.get_transactions().data==[] and account["type"]!="fiat":  
+        #                  otherwise exception: Cannot delete a fiat account
+        print "= found EMPTY account! (id=%s) Trying to delete now:" % account["id"]
+        try:
+          self.client.delete_account(account["id"])
+        except Exception as e:
+          print "exception caught: ", type(e), e
+          print "Could NOT delete this account:\n", account, "\n"
+        else:
+          print "Done. Deleted.\n"
+          
+      else: print "= non-empty or fiat account (id=%s), continue." % account["id"]
 
 
   def findAccountIdsForName(self, name="New Account"):
@@ -228,7 +234,7 @@ def pause():
   
 def tryWalletFunctions():
   C=cb()
-  
+
   print C
   C.methods()
 

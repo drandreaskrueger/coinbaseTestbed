@@ -1,0 +1,60 @@
+
+Get your primary coinbase account: <class 'coinbase.wallet.model.Account'> d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3
+
+Create Bitcoin address in that account:
+<class 'coinbase.wallet.model.Address'> mktouSKom1tgTiw9HC6ffjbGDF5wG9Wtrq
+{
+  "address": "mktouSKom1tgTiw9HC6ffjbGDF5wG9Wtrq", 
+  "callback_url": null, 
+  "created_at": "2016-01-12T21:22:30Z", 
+  "id": "c656425d-6b04-5058-9766-49cfea9cb70b", 
+  "name": null, 
+  "resource": "address", 
+  "resource_path": "/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3/addresses/c656425d-6b04-5058-9766-49cfea9cb70b", 
+  "updated_at": "2016-01-12T21:22:30Z"
+}
+
+primary_account.send_money like said in tutorial:
+exception caught:  <type 'exceptions.TypeError'> send_money() takes exactly 1 argument (2 given)
+Syntax given in tutorial, with dictionary of arguments, is wrong.
+
+primary_account.send_money(to=address.address ...
+exception caught:  <class 'coinbase.wallet.error.ValidationError'> APIError(id=validation_error): You can't send a payment from an account to itself.
+So this tutorial sentence is also wrong:  '(since it is your own address, the funds will just come back to your primary wallet)'
+
+Press Enter to continue...
+
+request money:
+
+primary_account.request_money ... like said in tutorial:
+exception caught:  <type 'exceptions.TypeError'> request_money() takes exactly 1 argument (2 given)
+Syntax given in tutorial, with dictionary of arguments, is wrong.
+
+This does work:
+primary_account.request_money(to=....@....,amount='0.01',currency='BTC')
+{
+  "amount": {
+    "amount": "0.01000000", 
+    "currency": "BTC"
+  }, 
+  "created_at": "2016-01-12T21:22:36Z", 
+  "description": "Cannot request money from myself, so testing from another account.", 
+  "id": "7727349f-d715-5816-ac0d-129e3fba076f", 
+  "instant_exchange": false, 
+  "native_amount": {
+    "amount": "92.13", 
+    "currency": "EUR"
+  }, 
+  "resource": "transaction", 
+  "resource_path": "/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3/transactions/7727349f-d715-5816-ac0d-129e3fba076f", 
+  "status": "pending", 
+  "to": {
+    "email": "________2@_________________.__", 
+    "resource": "email"
+  }, 
+  "type": "request", 
+  "updated_at": "2016-01-12T21:22:36Z"
+}
+
+This tx has gone through, and looks fine.
+BUT: never leaves 'status=pending'. And no email is arriving!

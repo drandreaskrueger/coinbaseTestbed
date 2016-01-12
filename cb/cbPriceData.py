@@ -17,7 +17,7 @@
 
 '''
 
-from cbWallet import cb, pause
+from cbWallet import cb
 
 def showAsMoney(money):
   return "%s %s" % (money.currency, money.amount)
@@ -40,14 +40,14 @@ class cbPriceData(cb):
       
       
 
-  def allCurrencies(self):
+  def allCurrencies(self, debug=False):
     print "\nGenerating quite a cool table, please be patient. Getting the data ...\n1 Bitcoin = ..."
     counter, breakEveryX, storeEm = 0, 3, []
     
     # download prices for ALL currencies
     for curr in self.client.get_currencies().data:
       
-      if curr["id"]<"UUU": continue # for debugging: make faster by leaving out most
+      if debug and curr["id"]<"UUU": continue # for debugging: make faster by leaving out most
       
       price = self.client.get_spot_price(currency=curr["id"])
       # name = repr(curr["name"])
@@ -76,6 +76,8 @@ class cbPriceData(cb):
     with file("currencies2btc.txt","r") as f:
       L=f.readlines()
     print "".join(L)
+    
+    if debug: print "(shortened table, due to debug=True)"
       
     print "\nopen '%s' to see same but with unicode characters" % filename
     
@@ -97,5 +99,5 @@ if __name__ == "__main__":
   
   C.spotPrice()
   
-  C.allCurrencies()
+  C.allCurrencies(debug=True)
   

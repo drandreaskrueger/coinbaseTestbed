@@ -1,0 +1,238 @@
+
+Showing payment methods: number= 2
+
+            resource:                           payment_method                           payment_method
+                name:                      Test Bank *****7934                               USD Wallet
+       allow_deposit:                                     True                                     True
+          created_at:                     2016-01-10T04:25:21Z                     2016-01-10T04:25:21Z
+          updated_at:                     2016-01-10T04:25:21Z                     2016-01-10T04:25:21Z
+         primary_buy:                                     True                                    False
+            currency:                                      USD                                      USD
+       resource_path: /v2/payment-methods/ab51d18f-8448-59e4-9508-391f1e5ed41f /v2/payment-methods/3f0d0465-67a1-5cc5-8b7f-cdbea6c4f284
+      allow_withdraw:                                     True                                     True
+                type:                         ach_bank_account                             fiat_account
+        primary_sell:                                     True                                    False
+          allow_sell:                                     True                                     True
+                  id:     ab51d18f-8448-59e4-9508-391f1e5ed41f     3f0d0465-67a1-5cc5-8b7f-cdbea6c4f284
+           allow_buy:                                     True                                     True
+
+              Limits:
+
+####### payment_method: Test Bank *****7934 #######
+'sell' limits (Test Bank *****7934):
+{
+  "period_in_days": 1, 
+  "remaining": {
+    "amount": "10000.00", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "10000.00", 
+    "currency": "USD"
+  }
+}
+'buy' limits (Test Bank *****7934):
+{
+  "period_in_days": 1, 
+  "remaining": {
+    "amount": "10000.00", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "10000.00", 
+    "currency": "USD"
+  }
+}
+{
+  "period_in_days": 1, 
+  "remaining": {
+    "amount": "2911.00", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "5000.00", 
+    "currency": "USD"
+  }
+}
+'instant_buy' limits (Test Bank *****7934):
+{
+  "period_in_days": 7, 
+  "remaining": {
+    "amount": "0.00", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "0.00", 
+    "currency": "USD"
+  }
+}
+'deposit' limits (Test Bank *****7934):
+{
+  "period_in_days": 1, 
+  "remaining": {
+    "amount": "2911.00", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "5000.00", 
+    "currency": "USD"
+  }
+}
+
+
+####### payment_method: USD Wallet #######
+'sell' limits (USD Wallet):
+{
+  "period_in_days": 1, 
+  "remaining": {
+    "amount": "10000.00", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "10000.00", 
+    "currency": "USD"
+  }
+}
+'buy' limits (USD Wallet):
+{
+  "period_in_days": 1, 
+  "remaining": {
+    "amount": "10000.00", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "10000.00", 
+    "currency": "USD"
+  }
+}
+
+
+Press Enter to continue...
+
+Inconsistency in 'get_buy_price': Returns .APIObject not .Money
+
+get the current buy price,  type= <class 'coinbase.wallet.model.APIObject'>
+amount of last transaction, type= <class 'coinbase.wallet.model.Money'>
+
+The consequence: More difficult to cast to string:
+easy:  BTC -0.00700000
+*meh*  {
+  "amount": "10201.00", 
+  "currency": "USD"
+}
+
+Press Enter to continue...
+
+Buy OR Sell BTC for USD, depending on current price
+
+Buy Price : USD 10201.00 Threshold: 200
+Sell Price: USD 9801.00 Threshold: 500
+Decide to sell ... Sold!
+{
+  "amount": {
+    "amount": "0.00100000", 
+    "currency": "BTC"
+  }, 
+  "committed": true, 
+  "created_at": "2016-01-12T21:25:43Z", 
+  "fees": [
+    {
+      "amount": {
+        "amount": "0.00", 
+        "currency": "USD"
+      }, 
+      "type": "coinbase"
+    }, 
+    {
+      "amount": {
+        "amount": "0.15", 
+        "currency": "USD"
+      }, 
+      "type": "bank"
+    }
+  ], 
+  "id": "738d9faa-b7e9-55f8-9840-1b08ec033566", 
+  "instant": false, 
+  "payment_method": {
+    "id": "ab51d18f-8448-59e4-9508-391f1e5ed41f", 
+    "resource": "payment_method", 
+    "resource_path": "/v2/payment-methods/ab51d18f-8448-59e4-9508-391f1e5ed41f"
+  }, 
+  "payout_at": "2016-01-14T21:25:43Z", 
+  "resource": "sell", 
+  "resource_path": "/v2/accounts/39af251d-a6f3-52d6-b6a8-50f998c3f383/sells/738d9faa-b7e9-55f8-9840-1b08ec033566", 
+  "status": "completed", 
+  "subtotal": {
+    "amount": "9.90", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "9.75", 
+    "currency": "USD"
+  }, 
+  "transaction": {
+    "id": "ec1dc19f-de99-59f6-869a-cbb62b053fbf", 
+    "resource": "transaction", 
+    "resource_path": "/v2/accounts/39af251d-a6f3-52d6-b6a8-50f998c3f383/transactions/ec1dc19f-de99-59f6-869a-cbb62b053fbf"
+  }, 
+  "updated_at": "2016-01-12T21:25:44Z"
+}
+
+Press Enter to continue...
+
+Now again, with different thresholds:
+
+Buy OR Sell BTC for USD, depending on current price
+
+Buy Price : USD 10201.00 Threshold: 20000
+Sell Price: USD 9801.00 Threshold: 50000
+Decide to buy ...  bought!
+{
+  "amount": {
+    "amount": "0.00100000", 
+    "currency": "BTC"
+  }, 
+  "committed": true, 
+  "created_at": "2016-01-12T21:25:46Z", 
+  "fees": [
+    {
+      "amount": {
+        "amount": "0.00", 
+        "currency": "USD"
+      }, 
+      "type": "coinbase"
+    }, 
+    {
+      "amount": {
+        "amount": "0.15", 
+        "currency": "USD"
+      }, 
+      "type": "bank"
+    }
+  ], 
+  "id": "daf63b8e-a177-55bb-9ba6-ee44f5b22783", 
+  "instant": false, 
+  "payment_method": {
+    "id": "ab51d18f-8448-59e4-9508-391f1e5ed41f", 
+    "resource": "payment_method", 
+    "resource_path": "/v2/payment-methods/ab51d18f-8448-59e4-9508-391f1e5ed41f"
+  }, 
+  "payout_at": "2016-01-19T21:25:46Z", 
+  "resource": "buy", 
+  "resource_path": "/v2/accounts/39af251d-a6f3-52d6-b6a8-50f998c3f383/buys/daf63b8e-a177-55bb-9ba6-ee44f5b22783", 
+  "status": "completed", 
+  "subtotal": {
+    "amount": "10.10", 
+    "currency": "USD"
+  }, 
+  "total": {
+    "amount": "10.25", 
+    "currency": "USD"
+  }, 
+  "transaction": {
+    "id": "dbe54b8f-8c1a-5623-8dd3-76ed0c6319a9", 
+    "resource": "transaction", 
+    "resource_path": "/v2/accounts/39af251d-a6f3-52d6-b6a8-50f998c3f383/transactions/dbe54b8f-8c1a-5623-8dd3-76ed0c6319a9"
+  }, 
+  "updated_at": "2016-01-12T21:25:47Z"
+}
