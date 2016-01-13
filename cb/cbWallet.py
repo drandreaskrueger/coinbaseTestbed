@@ -201,8 +201,12 @@ def sendToSecondAccount(C, name=ACCOUNTNAME):
   amount = '0.00%s' % random2Digits()
   description = 'for being %s!' % randomAdjective()
 
-  result=C.sendMoneyTo(account, amount, description )
-  print "Sending - done. Result: %s\n%s" % (type(result), result)
+  try:
+    result=C.sendMoneyTo(account, amount, description )
+  except Exception as e:
+    print "exception caught: ", type(e), e
+  else:  
+    print "Sending - done. Result: %s\n%s" % (type(result), result)
 
 def listOfTransactions(C):
   print "\nFinding out what kind of beast a list of transactions actually is:"
@@ -230,7 +234,7 @@ def pause():
   raw_input("\nPress Enter to continue...")
   
 def showAllTransactionsDetailsWithPause(account):
-  print "Show ALL transactions of account %s:\n" % account["id"]
+  print "\nShow ALL transactions of account %s:\n" % account["id"]
   for tx in account.get_transactions().data:
     print tx["amount"], tx["description"], tx["id"]
     print tx

@@ -82,10 +82,14 @@ class cbBuySellBtc(cb):
     
     if float(sell_price.amount) >= sell_price_threshold:
       print "Decide to sell ...",
-      sell = account.sell(amount='0.001',
-                      currency="BTC",
-                      payment_method=payment_method.id)
-      print "Sold!\n", sell
+      try:
+        sell = account.sell(amount='0.001',
+                        currency="BTC",
+                        payment_method=payment_method.id)
+      except Exception as e:
+        print "exception caught: ", type(e), e
+      else:
+        print "Sold!\n", sell
       
     if float(buy_price.amount) <= buy_price_threshold:
       print "Decide to buy ... ",
@@ -93,62 +97,6 @@ class cbBuySellBtc(cb):
                     currency="BTC",
                     payment_method=payment_method.id)
       print "bought!\n", buy
-      
-      
-  def spotPrice(self):
-    print "\nGet spot price of BTC in given currency."
-    currency_code="USD"
-    try:
-      print "\nwrong syntax in tutorial:  client.get_spot_price({currency: currency_code})"  
-      price = self.client.get_spot_price({currency: currency_code})
-    except Exception as e: print "exception caught: ", type(e), e
-    
-    print "\ncorrect syntax:\nclient.get_spot_price(currency=currency_code)\n"
-    for currency_code in ['USD', 'EUR', 'CAD', 'YEN', 'XAU']:  # can also use EUR, CAD, etc.
-      # Make the request
-      price = self.client.get_spot_price(currency=currency_code)
-      print 'Current bitcoin price in %s: %s %s' % (currency_code, price.amount, price.currency)
-      
-      
-
-  def allCurrencies(self):
-    print "\nGenerating quite a cool table, please be patient. Getting the data ...\n1 Bitcoin = ..."
-    counter, breakEveryX, storeEm = 0, 3, []
-    
-    # download prices for ALL currencies
-    for curr in self.client.get_currencies().data:
-      
-      # if curr["id"]<"UUU": continue # for debugging: make faster by leaving out most
-      
-      price = self.client.get_spot_price(currency=curr["id"])
-      # name = repr(curr["name"])
-      # name = unicode(curr["name"], errors='ignore')
-      name = curr["name"].encode('utf-8')
-      
-      print '... in %s (%s): %s %s !' % (curr["id"], repr(name), price.amount, price.currency),
-      counter+=1 
-      if counter%breakEveryX==0: print
-      
-      # keep for later:
-      storeEm.append({"price": float(price.amount), "curr":price.currency, "name": name})
-  
-    
-    print "\nSort by price ...",
-    storeEm.sort(key=lambda x:x["price"], reverse=True)
-    yiehah=["{price:13.2f} {curr:s} ({name:s})\n".format(**p) for p in storeEm]
-            
-    print "done. Writing to file (because of unicode characters) ...", 
-    filename="currencies2btc.txt"
-    o=file(filename,"w")
-    o.writelines(yiehah)
-    o.close()
-    
-    print "done.\n\nHave you ever seen the world currencies in this cool order?\n"
-    with file("currencies2btc.txt","r") as f:
-      L=f.readlines()
-    print "".join(L)
-      
-    print "\nopen '%s' to see same but with unicode characters" % filename
     
 
 """

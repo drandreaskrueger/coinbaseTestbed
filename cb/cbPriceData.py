@@ -28,16 +28,21 @@ class cbPriceData(cb):
     print "\nGet spot price of BTC in given currency."
     currency_code="USD"
     try:
-      print "\nwrong syntax in tutorial:  client.get_spot_price({currency: currency_code})"  
-      price = self.client.get_spot_price({currency: currency_code})
+      print '\nwrong syntax in tutorial:  client.get_spot_price( {"currency": currency_code} )'  
+      price = self.client.get_spot_price({"currency": currency_code})
     except Exception as e: print "exception caught: ", type(e), e
     
-    print "\ncorrect syntax:\nclient.get_spot_price(currency=currency_code)\n"
+    try:
+      print '\nthis correction works:     client.get_spot_price(**{"currency": currency_code})'  
+      price = self.client.get_spot_price(**{"currency": currency_code})
+      print 'Current bitcoin price in %s: %s %s' % (currency_code, price.amount, price.currency)
+    except Exception as e: print "exception caught: ", type(e), e
+    
+    print "\nand this syntax works too: client.get_spot_price(currency=currency_code)"
     for currency_code in ['USD', 'EUR', 'CAD', 'YEN', 'XAU']:  # can also use EUR, CAD, etc.
       # Make the request
       price = self.client.get_spot_price(currency=currency_code)
       print 'Current bitcoin price in %s: %s %s' % (currency_code, price.amount, price.currency)
-      
       
 
   def allCurrencies(self, debug=False):

@@ -73,11 +73,10 @@ def requesting(primary_account):
     print "Syntax given in tutorial, with dictionary of arguments, is wrong."
     
   print "\nThis does work:"
-  print "primary_account.request_money(to=....@....,amount='0.01',currency='BTC')"
-  tx=primary_account.request_money(to=EMAILADDRESS2,amount='0.01',currency='BTC', 
-              description='Cannot request money from myself, so testing from another account.')
+  print "primary_account.request_money( **{ parameters } )"
+  tx=primary_account.request_money( **{'to': EMAILADDRESS2, 'amount': '0.01', 'currency': 'BTC', 
+                                       'description':'Not request money from myself, testing from another account.'})
   print tx
-  
   
   print "\nThis tx has gone through, and looks fine."
   print "BUT: never leaves 'status=pending'. And no email is arriving!"
