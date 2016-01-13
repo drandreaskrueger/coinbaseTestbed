@@ -11,12 +11,17 @@ Please run these to see how coinbase works, and which inconsistencies & typos I 
 
 The latter produces (among other things) a neat table of [all the currencies](output/1BitcoinInAllCurrencies-20160110.txt) (In non-fantasy exchange rates only when not on sandbox but on real api.).
 
-## inconsistencies, typos, bugs
-The tutorial is not error-free. Throughout the .py code, I have caught exceptions caused by wrong syntax, or implementation. You see them either in the [source code](cb/) or in the [output](output/).
+The main purpose of my .py code is to try out all explained functions once, so that I  better understand the whole coinbase system. 
 
-Additional to those ...
+## inconsistencies, typos, bugs
+The [tutorial](https://developers.coinbase.com) is not error-free. Throughout my .py code I have caught some exceptions caused by wrong syntax, or implementation. You see them either in the [source code](cb/) or in the [output](output/).
+
+Additional to those, here are more:
 * [client.get_notifications()](output/BUG_client.get_notifications()_with-API-answer.txt) has a real bug, some API answer is crashing the python library code.
 
+Also see [my ideas](README-other-ideas.md) what else could be useful extensions.
+
+---
 
 All this is work in progress ... current version:
 
