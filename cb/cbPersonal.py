@@ -19,10 +19,15 @@ API_SECRET=""
 # Cause I cannot 'request_money' from myself.
 EMAILADDRESS2=""
 
+PRODUCTION = False
 
 try:
-  from cbPersonal_ME import API_KEY, API_SECRET, EMAILADDRESS, EMAILADDRESS2
+  from cbPersonal_ME import API_KEY, API_SECRET, EMAILADDRESS, EMAILADDRESS2, PRODUCTION
 except:
   pass
 else: 
-  print "Credentials from 'cbPersonal_ME.py' which is in .gitignore. Still, please think about better security!" 
+  print "Credentials from 'cbPersonal_ME.py' which is in .gitignore. Still, better think about more security!" 
+
+SANDBOX_URL = 'https://api.sandbox.coinbase.com'
+PRODUCTION_URL=       'https://api.coinbase.com'
+API_URL=PRODUCTION_URL if PRODUCTION else SANDBOX_URL 

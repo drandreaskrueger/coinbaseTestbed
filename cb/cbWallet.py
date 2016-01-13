@@ -23,15 +23,10 @@
 
 
 # API authorization for coinbase. Import, or define here manually.
-from cbPersonal import API_KEY, API_SECRET
+from cbPersonal import API_KEY, API_SECRET, API_URL
 
 # name of second account:
 ACCOUNTNAME="piggybank" 
-
-PRODUCTION = False
-SANDBOX_URL = 'https://api.sandbox.coinbase.com'
-PRODUCTION_URL=       'https://api.coinbase.com'
-API_URL=PRODUCTION_URL if PRODUCTION else SANDBOX_URL 
 
 # pip install coinbase # v2.0.3
 from coinbase.wallet.client import Client
@@ -128,7 +123,11 @@ class cb (object):
     print "newly created address: ", address.address
     
     # Send coins to the new account from your primary account:
-    result = primary_account.send_money(to=address.address, amount=amount, currency='BTC', description=description)
+    try:
+      result = primary_account.send_money(to=address.address, amount=amount, currency='BTC', description=description)
+    except Exception as e:
+      print "exception caught: ", type(e), e
+      return {}
     
     return result
     

@@ -86,17 +86,19 @@ class cbBuySellBtc(cb):
         sell = account.sell(amount='0.001',
                         currency="BTC",
                         payment_method=payment_method.id)
+        print "Sold!\n", sell
       except Exception as e:
         print "exception caught: ", type(e), e
-      else:
-        print "Sold!\n", sell
       
     if float(buy_price.amount) <= buy_price_threshold:
       print "Decide to buy ... ",
-      buy = account.buy(amount='0.001',
-                    currency="BTC",
-                    payment_method=payment_method.id)
-      print "bought!\n", buy
+      try:
+        buy = account.buy(amount='0.001',
+                      currency="BTC",
+                      payment_method=payment_method.id)
+        print "bought!\n", buy
+      except Exception as e:
+        print "exception caught: ", type(e), e
     
 
 """
