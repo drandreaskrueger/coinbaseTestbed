@@ -1,11 +1,11 @@
 
 # TODO
 ## OAuth2
-If you’re application requires access to other Coinbase users' accounts, do not use API Key. To securely access other Coinbase users' accounts, use Coinbase Connect (OAuth2)
+> If you’re application requires access to other Coinbase users' accounts, do not use API Key. To securely access other Coinbase users' accounts, use Coinbase Connect (OAuth2)
 	
-Python Social Auth http://psa.matiasaguirre.net/
-with Coinbase Strategy http://psa.matiasaguirre.net/docs/backends/coinbase.html
-after registering New OAuth2 Application at https://sandbox.coinbase.com/oauth/applications/new
+* Python Social Auth http://psa.matiasaguirre.net/
+* with Coinbase Strategy http://psa.matiasaguirre.net/docs/backends/coinbase.html
+* after registering New OAuth2 Application at https://sandbox.coinbase.com/oauth/applications/new
 
 ## Security
 * store the API_SECRET in a good way

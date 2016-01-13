@@ -5,12 +5,12 @@ More ideas, apart from those mentioned within the sourcecode.
 ## testing
 https://developers.coinbase.com/docs/wallet/testing
 
-## error list
+### error list
 When I read this sentence:
 
 > Important: Different error types (id) can be added and removed over time so you should make sure your application accepts new ones as well.
 
-I thought it makes sense to deliver the whole table (Error id, Code, Description) as an always up-to-date API function result:
+I thought it makes sense to deliver the whole table (Error id, Code, Description) as an always up-to-date API function result, like:
 
 https://api.coinbase.com/v2/error_codes
 
@@ -30,8 +30,11 @@ I tried a lot between 2011-01-01 and 2016-01-01, but so far haven't found differ
     r = requests.options("https://api.sandbox.coinbase.com/v2/")
     print r.status_code
     
-results in 404. It would be good to:
+results in 
+    404 
+    
+It would be good to:
 
-> implement the OPTIONS method
+> implement the OPTIONS method  
 > http://docs.python-requests.org/en/latest/user/advanced/#http-verbs
 
