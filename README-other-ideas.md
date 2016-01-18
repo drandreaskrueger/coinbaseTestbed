@@ -38,3 +38,12 @@ It would be good to:
 > implement the OPTIONS method  
 > http://docs.python-requests.org/en/latest/user/advanced/#http-verbs
 
+## Notifications
+When an API-key is created, and configured with a notifications callback URL, it would be useful to be able to simply trigger a dummy notification:
+
+    from coinbase.wallet.client import Client
+    client = Client(API_KEY, API_SECRET, base_api_uri=API_BACKEND_URL)
+    notifications = client.trigger_dummy_callback()
+	
+to test my notification callback webhook.
+

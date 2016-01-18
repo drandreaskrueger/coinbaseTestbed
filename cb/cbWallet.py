@@ -23,7 +23,7 @@
 
 
 # API authorization for coinbase. Import, or define here manually.
-from cbPersonal import API_KEY, API_SECRET, API_URL
+from cbPersonal import API_KEY, API_SECRET, API_BACKEND_URL
 
 # name of second account:
 ACCOUNTNAME="piggybank" 
@@ -41,7 +41,7 @@ class cb (object):
   
   def getClient(self):
     "establish connection"
-    client = Client(API_KEY, API_SECRET, base_api_uri=API_URL)
+    client = Client(API_KEY, API_SECRET, base_api_uri=API_BACKEND_URL)
     return client
   
   def __init__(self, client=None):

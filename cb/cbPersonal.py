@@ -30,4 +30,4 @@ else:
 
 SANDBOX_URL = 'https://api.sandbox.coinbase.com'
 PRODUCTION_URL=       'https://api.coinbase.com'
-API_URL=PRODUCTION_URL if PRODUCTION else SANDBOX_URL 
+API_BACKEND_URL=PRODUCTION_URL if PRODUCTION else SANDBOX_URL 

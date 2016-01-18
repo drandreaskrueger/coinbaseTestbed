@@ -14,10 +14,11 @@ The latter produces (among other things) a neat table of [all the currencies](ou
 The main purpose of my .py code is to try out all explained functions once, so that I  better understand the whole coinbase system. 
 
 ## inconsistencies, typos, bugs
-The [tutorial](https://developers.coinbase.com) is not error-free. Throughout my .py code I have caught some exceptions caused by wrong syntax, or implementation. You see them either in the [source code](cb/) or in the [output](output/).
+The [tutorial](https://developers.coinbase.com) is not error-free. Throughout my .py code above I have caught some exceptions caused by wrong syntax, or implementation. You see them either in the [source code](cb/) or in the [output](output/).
 
-Additional to those, here are more:
+*Additional to those, here are more:*
 * [client.get_notifications()](output/BUG_client.get_notifications()_with-API-answer.txt) has a real bug, some API answer is crashing the python library code.
+* [verify_callback()](output/BUGS_verify_callback.md) is probably totally outdated. A sequence of bugs - each time I solve one, the next appears :-)
 
 Also see [my ideas](README-other-ideas.md) what else could be useful extensions.
 

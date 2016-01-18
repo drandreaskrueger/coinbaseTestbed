@@ -2,7 +2,7 @@
 'client.get_notifications()' is ill somehow!
 
 from coinbase.wallet.client import Client
-client = Client(API_KEY, API_SECRET, base_api_uri=SANDBOX_API_URL)
+client = Client(API_KEY, API_SECRET, base_api_uri=SANDBOX_API_BACKEND_URL)
 notifications = client.get_notifications()
 
 Traceback (most recent call last):
