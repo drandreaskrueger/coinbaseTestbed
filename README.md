@@ -7,6 +7,7 @@ Either the server code, or the python library seems to have some bugs:
 * [client.get_notifications()](output/BUG_client.get_notifications()_with-API-answer.txt) has a real bug, some API answer is crashing the python library code.
 * [verify_callback()](output/BUGS_verify_callback.md) is outdated? A sequence of bugs - each time I solve one, the next appears :-)
 * [invalid (empty) HTTP_HOST header](output/BUG_invalid-HTTP_HOST-header.md) in your callback requests onto my IP-address webhook.
+* very small payments ask "*Do you want to add it?*" but do not allow to answer. Clicking "Pay" doesn't do anything. See [this screenshot](output/BUG_Do-you-want-to-add-it_But-no-way-to-say-YES.png).
 
 *Additional to those*:
 
@@ -30,8 +31,7 @@ The latter produces (among other things) a neat table of [all the currencies](ou
 
 * [cbPersonal.py](cb/cbPersonal.py) = your API key goes here. Do all this with a [sandbox](https://sandbox.coinbase.com) account!
 
-All this is work in progress, probably more to come ... current version: **v05**
-
+All this is work in progress, perhaps more to come ... current version: **v05**
 
 ---
 
@@ -39,3 +39,5 @@ All this is work in progress, probably more to come ... current version: **v05**
 ## donation ware!
 (C) 2016 Andreas Krueger  
 If you like this, show it: [BTC] 1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC  
+
+---
