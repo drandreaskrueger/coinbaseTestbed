@@ -1,4 +1,5 @@
-# BUG: invalid HTTP_HOST header in callbacks to IP addresses
+# BUG: 
+## invalid HTTP_HOST header in callbacks to IP addresses
 Whew, this took me many many hours to debug. What a strange problem.
 
 ### Symptom
@@ -48,7 +49,7 @@ So please contact me when you have solved this. Thanks!
   
 
 ### The whole log:
-See my app '[buyme](https://github.com/drandreaskrueger/buyme)' for details.  
+See my app '[buyme](https://github.com/drandreaskrueger/buyme)' for details. But the following log tells you what you need to know:
 
     Django version 1.9.1, using settings 'djangosite.settings'
     Starting development server at http://0.0.0.0:8000/
@@ -64,6 +65,8 @@ See my app '[buyme](https://github.com/drandreaskrueger/buyme)' for details.
     redirecting to coinbase: https://sandbox.coinbase.com/checkouts/900a2ae7be0c03d8d5ef702aa4209fdb
     [19/Jan/2016 09:09:02] "POST /buyme/ HTTP/1.1" 302 0
     
+Then, when a payment is authorized on that /checkout/ page, this arrives:
+
     Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
     [19/Jan/2016 09:09:13] "POST /buyme/hook/9999999876543765456/ HTTP/1.1" 400 26
  

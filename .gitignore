@@ -4,6 +4,7 @@ cbPersonal_ME.py
 .project
 .pydevproject
 currencies2btc.txt
+*.md.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
