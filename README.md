@@ -1,9 +1,26 @@
 # coinbaseTestbed
-Learning and improving the Coinbase tutorial https://developers.coinbase.com/
+Learning (and improving) the Coinbase tutorial https://developers.coinbase.com/
 
-Please run these to see how coinbase works, and which inconsistencies & typos I have found in the official (Python) tutorial.
+## Inconsistencies, typos, bugs
+Either the server code, or the python library seems to have some bugs:  
 
-* [cbPersonal.py](cb/cbPersonal.py) = your API key goes here. Do all this with a [sandbox](https://sandbox.coinbase.com) account!
+* [client.get_notifications()](output/BUG_client.get_notifications()_with-API-answer.txt) has a real bug, some API answer is crashing the python library code.
+* [verify_callback()](output/BUGS_verify_callback.md) is outdated? A sequence of bugs - each time I solve one, the next appears :-)
+* [invalid (empty) HTTP_HOST header](output/BUG_invalid-HTTP_HOST-header.md) in your callback requests onto my IP-address webhook.
+
+*Additional to those*:
+
+* Your [tutorial](https://developers.coinbase.com) is not error-free: Throughout my .py code below ... I have *caught some exceptions* caused by wrong syntax, or implementation. You'll see them either in the [source code](cb/) or in the [output](output/).
+* Also please read [my ideas](README-other-ideas.md) what else could be useful extensions, for future versions of your API.
+
+## Working code
+The main purpose of my .py code was to try out all explained functions once, so that I  better understand the whole coinbase system. But I am publishing it, because it might help others.
+
+Intended for:
+* Coinbase newbies: Please run these, to see how coinbase works. 
+* Coinbase devs: And which inconsistencies & typos I have found in the official (Python) tutorial.
+
+Chapter by chapter:
 * [output](output/cbWallet.py.txt) of [cbWallet.py](cb/cbWallet.py) = testing: Guides ... [Create a wallet](https://developers.coinbase.com/docs/wallet/guides/bitcoin-wallet)
 * [output](output/cbSendRequest.py.txt) of [cbSendRequest.py](cb/cbSendRequest.py) = testing: Guides ... [Send and Receive BTC](https://developers.coinbase.com/docs/wallet/guides/send-receive)
 * [output](output/cbBuySellBtc.py.txt) of [cbBuySellBtc.py](cb/cbBuySellBtc.py) = testing: Guides ... [Buy and Sell BTC](https://developers.coinbase.com/docs/wallet/guides/buy-sell)
@@ -11,21 +28,14 @@ Please run these to see how coinbase works, and which inconsistencies & typos I 
 
 The latter produces (among other things) a neat table of [all the currencies](output/1BitcoinInAllCurrencies-20160110.txt) (In non-fantasy exchange rates only when not on sandbox but on real api.).
 
-The main purpose of my .py code is to try out all explained functions once, so that I  better understand the whole coinbase system. 
+* [cbPersonal.py](cb/cbPersonal.py) = your API key goes here. Do all this with a [sandbox](https://sandbox.coinbase.com) account!
 
-## inconsistencies, typos, bugs
-The [tutorial](https://developers.coinbase.com) is not error-free. Throughout my .py code above I have caught some exceptions caused by wrong syntax, or implementation. You see them either in the [source code](cb/) or in the [output](output/).
+All this is work in progress, probably more to come ... current version: **v05**
 
-*Additional to those, here are more:*
-* [client.get_notifications()](output/BUG_client.get_notifications()_with-API-answer.txt) has a real bug, some API answer is crashing the python library code.
-* [verify_callback()](output/BUGS_verify_callback.md) is probably totally outdated. A sequence of bugs - each time I solve one, the next appears :-)
-
-Also see [my ideas](README-other-ideas.md) what else could be useful extensions.
 
 ---
 
-All this is work in progress ... current version:
 
-# v03
-
-
+## donation ware!
+(C) 2016 Andreas Krueger  
+If you like this, show it: [BTC] 1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC  

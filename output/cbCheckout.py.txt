@@ -1,0 +1,94 @@
+#######################################################################
+after paying on ddb272f7c92eb99cfa6432b4880f9cf5
+https://sandbox.coinbase.com/checkouts/ddb272f7c92eb99cfa6432b4880f9cf5
+#######################################################################
+
+http://requestb.in
+POST /w2vw66w2  application/json
+ 1.63 kB 2s ago  
+From 54.175.255.207
+
+FORM/POST PARAMETERS
+
+None
+
+
+HEADERS
+
+X-Request-Id: 9dbb99c6-a41e-460d-8192-29a0cca666cc
+Via: 1.1 vegur
+Connect-Time: 1
+Cb-Signature: lX2gUXXibduCP8baOWjDKGPTq+t2aMfQcLYj8aRA55cJfBYxRiZ3Tag6tqAMvJ7ZqQeSjZjw4LIahBhEq54sV5D64D9nsaDjLuoOzYF5SA3+7FJhkWmF2XFMJnheWznAjxyEir7U+V33GkG39hvqpwpILAisi5BrrKPKLIWhltJtG1OmDa3wsC9lwhSCMyigB65Zb1gufvuUH9V/oSwEeFCNg7poOf1AQAOJLCaLqqb8MaPXnDKiVDzh/p0YWUUZ51VWJgqvUDQzXDYYvALbdZn+8vRszEvlLuJ9+Ws89LloPJfbpz5yjUQe82ihCOqm7d61b1zG8HVys7Xc0Mi/5GPpi5/JH1B10IRlo0eN/V2UYShcyJMoqFv6jz+6PPjUZL9iE45/4jWpCfk57zLuquv+z9YZ94A2GOKsbkoU30OoqVKYwSuE9RXqRV4bM04mXTFbcodLT5QzhnUelYCVppF55UEs9Si3mEuRAKv4GgOIqfq3rmAxGhZLZFS0e/2Km8lawUbfIlCDnL5Hfl7XtP5I3w/ndC3kmnuma1eGR1OsgeFrZ+AfsEpIIfSIJZMzGiXDEXlT37lAr0r8baDypYh0cAO1SfLXaPQkQJhYTNlb9TiJHtTNY0SQ1cpWce3n6YOz6+Jt/Y5gI4Xa8LV75VC86coWfqaovvsd2HLCNTs=
+Cb-Version: BETA
+Host: requestb.in
+Content-Type: application/json
+Connection: close
+Accept: */*
+User-Agent: Faraday v0.9.1
+Content-Length: 1670
+Total-Route-Time: 0
+Accept-Encoding:
+
+
+RAW BODY
+
+{"id":"c4222a8a-305e-5c34-b733-5671ad508d00","type":"wallet:orders:paid","data":{"resource":{"id":"f4f03b56-d1fb-592d-bcc9-98f522256acd","code":"YADFEXR5","type":"order","name":"test","description":null,"amount":{"amount":"0.00010100","currency":"BTC"},"receipt_url":"https://www.coinbase.com/orders/6bdf4423553e593018b561ef1caf4230/receipt","resource":"order","resource_path":"/v2/orders/f4f03b56-d1fb-592d-bcc9-98f522256acd","status":"paid","bitcoin_amount":{"amount":"0.00010100","currency":"BTC"},"payout_amount":null,"bitcoin_address":"mfteeFH8NvtbfMwZeq8gkGbRwQLuoHoxJA","refund_address":"msD8EAS5PueNaGLbJZ49KtFyfAY3FqjXZe","bitcoin_uri":"bitcoin:mfteeFH8NvtbfMwZeq8gkGbRwQLuoHoxJA?amount=0.000101\u0026r=https://sandbox.coinbase.com/r/569de972d59e1c01da000675","notifications_url":null,"paid_at":"2016-01-19T07:45:14Z","mispaid_at":null,"expires_at":"2016-01-19T07:59:50Z","metadata":{"test":42},"created_at":"2016-01-19T07:44:50Z","updated_at":"2016-01-19T07:45:14Z","customer_info":null,"transaction":{"id":"002f29f4-d68f-557d-bb90-fee70eef4ac0","resource":"transaction","resource_path":"/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3/transactions/002f29f4-d68f-557d-bb90-fee70eef4ac0"},"mispayments":[],"refunds":[]}},"user":{"id":"8a7b0da0-ff92-5cb6-b42c-2b0d5c26e438","resource":"user","resource_path":"/v2/users/8a7b0da0-ff92-5cb6-b42c-2b0d5c26e438"},"account":{"id":"d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3","resource":"account","resource_path":"/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3"},"delivery_attempts":0,"created_at":"2016-01-19T07:45:14Z","resource":"notification","resource_path":"/v2/notifications/c4222a8a-305e-5c34-b733-5671ad508d00"}
+
+
+##########################################################################
+after manual curl
+curl -X POST -d "reason=testing&project=buyme" http://requestb.in/w2vw66w2
+##########################################################################
+
+http://requestb.in
+POST /w2vw66w2  application/x-www-form-urlencoded
+ 28 bytes 5s ago  
+From 90.153.73.247
+FORM/POST PARAMETERS
+
+reason: testing
+project: buyme
+HEADERS
+
+X-Request-Id: 59db056b-4fcc-4b8b-8f28-4b30e9632458
+Via: 1.1 vegur
+Connect-Time: 0
+Host: requestb.in
+Content-Type: application/x-www-form-urlencoded
+Connection: close
+Accept: */*
+User-Agent: curl/7.28.1
+Content-Length: 28
+Total-Route-Time: 0
+RAW BODY
+
+reason=testing&project=buyme
+
+#########################################
+curl -X POST -d '{"reason":"testing"}' -H "Content-Type: application/json" http://requestb.in/w2vw66w2
+#########################################
+
+http://requestb.in
+POST /w2vw66w2  application/json
+ 18 bytes 18s ago  
+From 90.153.73.247
+FORM/POST PARAMETERS
+
+None
+HEADERS
+
+X-Request-Id: ed5444da-00c9-49c2-b2d4-b9dbe2aaa45d
+Via: 1.1 vegur
+Connect-Time: 0
+Host: requestb.in
+Content-Type: application/json
+Connection: close
+Accept: */*
+User-Agent: curl/7.28.1
+Content-Length: 18
+Total-Route-Time: 1001
+RAW BODY
+
+'{reason:testing}'
+
+
