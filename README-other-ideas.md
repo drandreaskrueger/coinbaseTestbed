@@ -7,9 +7,11 @@ When I read this sentence in [/docs/wallet/testing](https://developers.coinbase.
 
 > Important: Different error types (id) can be added and removed over time so you should make sure your application accepts new ones as well.
 
-I thought it makes sense to deliver the whole table (Error id, Code, Description) as an always up-to-date API function result, like:
+I thought this new function could make sense:
 
-    https://api.coinbase.com/v2/error_codes
+* https://api.coinbase.com/v2/error_codes
+
+which would deliver the whole table (Error id, Code, Description) as an always up-to-date API function result.
 
 ## Versioning
 
@@ -17,9 +19,9 @@ I thought it makes sense to deliver the whole table (Error id, Code, Description
 
 https://developers.coinbase.com/api/v2#versioning
 
-Can I choose ANY date (or does it have to be the release data of that version)? 
+Can I choose ANY date (or does it have to be the exact release data of that version)?   
 Where is the documentation for the version history?  
-I tried a lot between 2011-01-01 and 2016-01-01, but so far haven't found differences. 
+
 
 ## HTTP verbs: OPTIONS
 
