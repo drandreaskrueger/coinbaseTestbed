@@ -18,7 +18,7 @@ Either the server code, or the python library seems to have some bugs:
 The main purpose of my .py code was to try out all explained functions once, so that I  better understand the whole coinbase system. But I am publishing it, because it might help others.
 
 Intended for:
-* Coinbase newbies: Please run these, to see how coinbase works. 
+* Coinbase newbies: Run these one by one, to see how coinbase works. 
 * Coinbase devs: And which inconsistencies & typos I have found in the official (Python) tutorial.
 
 Chapter by chapter:
