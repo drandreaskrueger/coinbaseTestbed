@@ -26,7 +26,7 @@ The bug was so difficult to find because:
 * The problem is not visible in http://requestb.in callbacks. There it shows a proper "Host: requestb.in".
 * (Perhaps it happens because my server is an IP-address-only server?)
 
-Finally, this is how I found the bug: After switching ON the Django logging (see [djangosite/loggingDebug.py](../djangosite/loggingDebug.py) imported into [settings.py](../djangosite/settings.py)) ...  
+Finally, this is how I found the bug: After switching ON the Django logging (see [djangosite/loggingDebug.py](https://github.com/drandreaskrueger/buyme/blob/master/djangosite/loggingDebug.py) imported into [settings.py](https://github.com/drandreaskrueger/buyme/blob/master/djangosite/settings.py)) ...  
 
 I was finally told, why it is not (200, OK) but (400, BAD REQUEST):
 
