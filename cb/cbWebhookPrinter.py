@@ -38,7 +38,7 @@ from coinbase.wallet.client import Client
 
 
 def cbCheckoutUrl(webhook, amount=0.000101, currency="BTC"):
-  "get payment URL from coinbase"
+  """get payment URL from coinbase"""
   
   client = Client(API_KEY, API_SECRET, base_api_uri=API_BACKEND_URL)
   parameters={"amount": "%s" % amount, "currency": currency, "name": "test", 
@@ -50,7 +50,7 @@ def cbCheckoutUrl(webhook, amount=0.000101, currency="BTC"):
 
 
 def test_cbCheckoutUrl(thenExit=True):
-  "The tutorial suggests requestb.in; and there, the problem does NOT appear!"
+  """The tutorial suggests requestb.in; and there, the problem does NOT appear!"""
   
   WEBHOOK="http://requestb.in/17v5yh31"
   print "pay here:"
@@ -60,11 +60,12 @@ def test_cbCheckoutUrl(thenExit=True):
 
 
 def alertText(t):
+  """attention seeker"""
   print "-" * len(t), "\n", t, "\n", "-" * len(t)
 
 
 def html_clickForCheckout(url):
-  "put payment url into webpage, for easy clicking"
+  """put payment url into webpage, for easy clicking"""
   
   HTML= ('<html><body>Please pay on <a href="%s">%s</a> '
          'with sandbox money to trigger the callback, '
@@ -74,14 +75,14 @@ def html_clickForCheckout(url):
 
 
 def headersTable():
-  "prints all headers of the request"
+  """prints all headers of the request"""
   
   return "\n".join( ["%s: %s"%(K, V) 
                      for K, V in cherrypy.request.headers.items()] )
 
 
-class StringGeneratorWebService(object):
-  "webserver with GET and POST, both on '/' route"
+class HeaderPrinterWebService(object):
+  """webserver with GET and POST, both on '/' route"""
   
   exposed = True
 
@@ -94,7 +95,7 @@ class StringGeneratorWebService(object):
     alertText("These are the headers of the incoming POST request. Check out 'Host:'")
     print h
     return h  # curl -X POST -d {} -H "Content-Type: application/json" http://208.68.38.174
-  
+
   
 if __name__ == '__main__':
   
@@ -108,4 +109,5 @@ if __name__ == '__main__':
                      'server.socket_port': 80,
                     }
   }
-  cherrypy.quickstart(StringGeneratorWebService(), '/', conf)
+  service = HeaderPrinterWebService()
+  cherrypy.quickstart(service, '/', conf)
