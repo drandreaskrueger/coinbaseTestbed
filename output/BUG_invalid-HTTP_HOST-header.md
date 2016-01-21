@@ -1,5 +1,22 @@
 # BUG: 
 ## invalid HTTP_HOST header in callbacks to IP addresses
+
+---
+---
+---
+
+## NEWSFLASH: Shorter demo code (January 21st)
+
+New 'foobar'-like demonstration code. Shows the problem in much less lines:
+
+[cbWebhookPrinter.py](../cb/cbWebhookPrinter.py) = A very simple cherrypy webserver with GET and POST on '/' route. 
+
+Run it on an IP-only-droplet (e.g. at [digitalocean](https://github.com/drandreaskrueger/buyme/blob/master/_how-to/VPS.md)), and you can see the bug live.
+
+---
+---
+---
+
 Whew, this took me many many hours to debug. What a strange problem.
 
 ### Symptom
