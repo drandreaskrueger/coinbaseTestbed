@@ -1,12 +1,15 @@
 '''
 @title    cbWebhookPrinter.py
 
-@summary: Reporting bug in coinbase server when webhook is IP address.
-          (Problematic: Makes Django fail to receive checkout notifications.)
+@summary: Reporting bug in coinbase server if webhook is an IP address.
 
-          Simple webserver with GET and POST on '/' route.
-            GET creates Coinbase checkout
-            POST receives notifications after payment.
+          Problematic: Makes Django fail to receive checkout notifications.
+          See 'BUG_invalid-HTTP_HOST-header.md' for details. 
+
+          This is a:
+                     Simple cherrypy webserver with GET and POST on '/' route.
+                        GET creates Coinbase checkout
+                        POST receives notifications after payment.
 
 @license:   (C) 2016 Andreas Krueger
 @attention: If you like this, show it: [BTC] 1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC  
@@ -37,11 +40,11 @@ import cherrypy # pip install cherrypy
 from coinbase.wallet.client import Client
 
 
-def cbCheckoutUrl(webhook, amount=0.000101, currency="BTC"):
+def cbCheckoutUrl(webhook, amount="0.000101", currency="BTC"):
   """get payment URL from coinbase"""
   
   client = Client(API_KEY, API_SECRET, base_api_uri=API_BACKEND_URL)
-  parameters={"amount": "%s" % amount, "currency": currency, "name": "test", 
+  parameters={"amount": amount, "currency": currency, "name": "test", 
              "notifications_url" : webhook }
   checkout = client.create_checkout(**parameters)
   embed_code=checkout["embed_code"] # print embed_code 
@@ -67,7 +70,7 @@ def alertText(t):
 def html_clickForCheckout(url):
   """put payment url into webpage, for easy clicking"""
   
-  HTML= ('<html><body>Please pay on <a href="%s">%s</a> '
+  HTML= ('<html><body>Please pay on <a href="%s">%s</a><br/>'
          'with sandbox money to trigger the callback, '
          'then watch the server log.</body></html>')
   alertText("watch this space after payment!")
@@ -111,3 +114,4 @@ if __name__ == '__main__':
   }
   service = HeaderPrinterWebService()
   cherrypy.quickstart(service, '/', conf)
+
