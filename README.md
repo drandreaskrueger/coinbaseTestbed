@@ -6,7 +6,7 @@ Either the server code, or the python library seems to have some bugs:
 
 * [client.get_notifications()](output/BUG_client.get_notifications()_with-API-answer.txt) has a real bug, some API answer is crashing the python library code.
 * [verify_callback()](output/BUGS_verify_callback.md) is outdated? A sequence of bugs - each time I solve one, the next appears :-)
-* [invalid (empty) HTTP_HOST header](output/BUG_invalid-HTTP_HOST-header.md) in your callback requests onto my IP-address webhook.
+* [invalid (empty) HTTP_HOST header](output/BUG_invalid-HTTP_HOST-header.md) in your callback requests onto my IP-address webhook. **!! <-- NEW CODE cbWebhookPrinter.py <-- !!**
 * very small payments ask "*Do you want to add it?*" but do not allow to answer. Clicking "Pay" doesn't do anything. See [this screenshot](output/BUG_Do-you-want-to-add-it_But-no-way-to-say-YES.png).
 
 *Additional to those*:
