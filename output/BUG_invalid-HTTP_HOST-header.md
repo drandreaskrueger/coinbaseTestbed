@@ -5,13 +5,15 @@
 ---
 ---
 
-## NEWSFLASH: Shorter demo code (January 21st)
+## NEWSFLASH: Shorter demo code (January 22st)
 
 New 'foobar'-like demonstration code. Shows the problem in much less lines:
 
-[cbWebhookPrinter.py](../cb/cbWebhookPrinter.py) = A very simple cherrypy webserver with GET and POST on '/' route. 
+[cbWebhookPrinter.py](../cb/cbWebhookPrinter.py) = Simple cherrypy webserver. 
 
-Run it on an IP-only-droplet (e.g. at [digitalocean](https://github.com/drandreaskrueger/buyme/blob/master/_how-to/VPS.md)), and you can see the bug live.
+Running on my IP-only-droplet (at [digitalocean](https://github.com/drandreaskrueger/buyme/blob/master/_how-to/VPS.md)), so you can see the bug live:
+
+* http://208.68.38.174/
 
 ---
 ---
