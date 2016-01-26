@@ -1,7 +1,7 @@
 # client.verify_callback
 
-## Bug 1
-The Python [library page](https://github.com/coinbase/coinbase-python#merchant-callbacks) says:
+## Bug 1 [fixed]
+(When I tried this,) the Python [library page](https://github.com/coinbase/coinbase-python#merchant-callbacks) said:
 
 > Merchant Callbacks  
 > Verify callback authenticity  
@@ -15,7 +15,7 @@ BUT there is no 'X-Signature' in request.META
      print request.META.keys()
      ['RUN_MAIN', 'SERVER_SOFTWARE', 'SCRIPT_NAME', 'REQUEST_METHOD', 'SERVER_PROTOCOL', 'HOME', 'LANG', 'SHELL', 'SERVER_PORT', 'HTTP_CB_VERSION', 'HTTP_HOST', 'HTTP_ACCEPT', 'wsgi.version', 'wsgi.run_once', 'SSH_TTY', 'wsgi.errors', 'wsgi.multiprocess', 'MAIL', 'SSH_CONNECTION', 'PATH_INFO', 'SSH_CLIENT', 'LOGNAME', 'USER', 'QUERY_STRING', 'PATH', 'TERM', 'HTTP_USER_AGENT', 'HTTP_CONNECTION', 'SERVER_NAME', 'REMOTE_ADDR', 'SHLVL', 'wsgi.url_scheme', 'HTTP_CB_SIGNATURE', 'CONTENT_LENGTH', 'wsgi.input', 'wsgi.multithread', 'TZ', '_', 'GATEWAY_INTERFACE', 'OLDPWD', 'PWD', 'DJANGO_SETTINGS_MODULE', 'CONTENT_TYPE', 'wsgi.file_wrapper', 'REMOTE_HOST', 'HTTP_ACCEPT_ENCODING']
      
-instead there is a 'HTTP_CB_SIGNATURE' (684-letters long) - which is probably the new name???
+instead there is a 'HTTP_CB_SIGNATURE' (684-letters long) - the new name.
 
 Trying with that ...
 
@@ -30,7 +30,7 @@ Trying with that ...
     No such file or directory: 
     u'/usr/local/lib/python2.7/dist-packages/coinbase/wallet/coinbase-callback.pub'
 
-I guess the ``pip install coinbase`` is lacking that file ``coinbase-callback.pub``
+The ``pip install coinbase`` seems to be lacking that file ``coinbase-callback.pub``.
 
 	locate *.pub
 	
@@ -43,18 +43,17 @@ I guess the ``pip install coinbase`` is lacking that file ``coinbase-callback.pu
     auth.py   client.py   compat.py   error.py   __init__.py   model.py   util.py
     auth.pyc  client.pyc  compat.pyc  error.pyc  __init__.pyc  model.pyc  util.pyc
 	
-	
-### Bug 3
-
-Then I manually downloaded that key:
+so I manually downloaded that key:
 
     cd /usr/local/lib/python2.7/dist-packages/coinbase/wallet/
     wget https://raw.githubusercontent.com/coinbase/coinbase-python/master/coinbase/wallet/coinbase-callback.pub
-      
-and now I could finally evaluate an arriving notification, with this command:
+    
+	
+### Bug 3
 
-	verify=client.verify_callback(request.body, request.META['HTTP_CB_SIGNATURE'])
-    print verify
+Now I could finally evaluate an arriving notification, with [client.verify_callback](https://github.com/coinbase/coinbase-python/blob/c29183bba2104f6260ef7a1b9b4267e003a6137d/coinbase/wallet/client.py#L546-L553):
+
+	print client.verify_callback(request.body, request.META['HTTP_CB_SIGNATURE'])
 
 BUT I get a
 
@@ -68,5 +67,4 @@ These are the inputs:
     request.META:  
     {'RUN_MAIN': 'true', 'SERVER_SOFTWARE': 'WSGIServer/0.1 Python/2.7.9', 'SCRIPT_NAME': u'', 'REQUEST_METHOD': 'POST', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HOME': '/root', 'LANG': 'en_US.UTF-8', 'SHELL': '/bin/bash', 'SERVER_PORT': '8000', 'HTTP_CB_VERSION': 'BETA', 'HTTP_HOST': '', 'HTTP_ACCEPT': '*/*', 'wsgi.version': (1, 0), 'wsgi.run_once': False, 'SSH_TTY': '/dev/pts/5', 'wsgi.errors': <open file '<stderr>', mode 'w' at 0x7f47455e31e0>, 'wsgi.multiprocess': False, 'MAIL': '/var/mail/root', 'SSH_CONNECTION': '90.153.73.247 55787 208.68.38.174 22', 'PATH_INFO': u'/buyme/hook/9999999876543765456/', 'SSH_CLIENT': '90.153.73.247 55787 22', 'LOGNAME': 'root', 'USER': 'root', 'QUERY_STRING': '', 'PATH': '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'TERM': 'xterm', 'HTTP_USER_AGENT': 'Faraday v0.9.1', 'HTTP_CONNECTION': 'close', 'SERVER_NAME': 'debian-512mb-nyc1-01-BUYME', 'REMOTE_ADDR': '54.175.255.207', 'SHLVL': '1', 'wsgi.url_scheme': 'http', 'HTTP_CB_SIGNATURE': 'RzH8wD+axfL7oWFma23k0jH8Ua0aJWq/XdG9ZtwzUEp+H1340HCPYBoKRjAgHd3w2/WKznuZDIFSnMc3Vex4Uep8csB9la2UwJCsasgprFKv468vnMIu/Sjuwo0gmq4O0WHOWuhUIGfoyAijHTUc1o4s3zsmiM2xr26ytrh1bBVgh61KTwOVW4SkS3iqIO3STeupbF4C13ySwn8w2HxJezdbV66VXfbTwir07jBCKa6xqnNnhKZrTA1YFO6AMsR353zfd0L/J4exdiCOUZ2x8D3p2rzKXVZ6dddIKwJxcC7msDyBFS5bwR8EKiU5RVztmsZrKzg5swmsb+N4ozzOMYQMmuAOYTmq1JBvUmCVX29LvzoUSRMMJ0dBAs95b5k+LwnwwrXSX2C7XnqN208ZuKJk7BqU3IlONrdPIcDQ72hJcIyq+HuvFluxxLa8iBseXC3Yu0Ia5vwm2irpRFUwwyxmXcgsCYLs9tCoT5Sph2bVPmOH+t3h42eb34e4IB2KhAjuTqK5rxvvBg3JnxxbZpOUWFTAdZ5+vZUkwL/fE17+mCrEQ6cPkT3iY38kTcL9dSIeRfpt8Ki5DZMDgue7w5W+/V1TdpqzpVx8SrEJlbaRA9uXx3ZVHgILLUvMvPr0kp5ARnD9Wh+EvUTNI1BxFU7kqE0RK1e1XytpXxL17gk=', 'CONTENT_LENGTH': '1820', 'wsgi.input': <socket._fileobject object at 0x7f473b714cd0>, 'wsgi.multithread': True, 'TZ': 'UTC', '_': '/usr/bin/python', 'GATEWAY_INTERFACE': 'CGI/1.1', 'OLDPWD': '/root', 'PWD': '/root/buyme', 'DJANGO_SETTINGS_MODULE': 'djangosite.settings', 'CONTENT_TYPE': 'application/json', 'wsgi.file_wrapper': <class wsgiref.util.FileWrapper at 0x7f4741f394c8>, 'REMOTE_HOST': '', 'HTTP_ACCEPT_ENCODING': ''}
 
-
-
+Idea: Is that a sandbox specific problem perhaps? Does the sandbox use a different public key?

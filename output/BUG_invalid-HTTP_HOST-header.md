@@ -5,13 +5,13 @@
 ---
 ---
 
-## NEWSFLASH: Shorter demo code (January 22st)
+## NEWSFLASH: Demo server (January 22st)
 
-New 'foobar'-like demonstration code. Shows the problem in much less lines:
+New 'foobar'-like demonstration code. Shows the problem in less lines:
 
 [cbWebhookPrinter.py](../cb/cbWebhookPrinter.py) = Simple cherrypy webserver. 
 
-Running on my IP-only-droplet (at [digitalocean](https://github.com/drandreaskrueger/buyme/blob/master/_how-to/VPS.md)), so you can see the bug live:
+LIVE: Running on my IP-only-droplet (at [digitalocean](https://github.com/drandreaskrueger/buyme/blob/master/_how-to/VPS.md)), so you can see the bug live:
 
 * http://208.68.38.174/
 
@@ -19,7 +19,7 @@ Running on my IP-only-droplet (at [digitalocean](https://github.com/drandreaskru
 ---
 ---
 
-Whew, this took me many many hours to debug. What a strange problem.
+Whew, this took me many many hours to debug. Of course, at first I supposed that *my* code is buggy. What a strange problem.  
 
 ### Symptom
 when Coinbase sends a notification callback, my django server (if in production-mode) immediately refuses it with a (400, BAD REQUEST):
