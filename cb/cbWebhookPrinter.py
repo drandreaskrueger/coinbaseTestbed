@@ -1,6 +1,5 @@
 '''
 @title    cbWebhookPrinter.py
-@version  v0.05
 
 @summary: Reporting bug in coinbase server if webhook is an IP address.
 
@@ -29,6 +28,8 @@
            --> Coinbase notification:
                 'Host:' header empty. Not valid according to RFC 1034/1035.   
 '''
+
+VERSION=   "v0.06"
 
 MY_URL="http://208.68.38.174"  # change to your droplet IP
 
@@ -77,11 +78,13 @@ def makePage(HTML):
 def html_clickForCheckout(url, last=None):
   """payment_url link for easy clicking. iframe for GET /hook/ results."""
   
-  HTML= ('<h1>Webhook for Coinbase Notifications</h1><p>Please pay on '
+  HTML= ('<h1>Webhook for Coinbase Notifications %s</h1>' % VERSION )
+  
+  HTML+=('<p>Please pay on ' 
          '<a href="%s">%s</a><br/>'
          'with sandbox money to trigger the callback from Coinbase, '
          'then reload the <a href="/hook">/hook</a> '
-         'iframe below.</p>')
+         'iframe below.</p>' )
   
   HTML+=('<p><button onclick="reload()">Reload</button> last notification:</p>'
          '<iframe id="001" src="/hook" width=1200 height=300>Try again '
