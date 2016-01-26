@@ -7,12 +7,14 @@ I could find these bugs in the Python library, and/or the server code:
 * [client.get_notifications()](bugs/client.get_notifications()_TypeError.txt): - this API answer creates a ``TypeError: unhashable type: 'dict'``.
 * [verify_callback()](bugs/verify_callback()_False.md) - missing data, and a bug?
 * [invalid (empty) HOST header](bugs/HOST-header_empty.md) - Django refuses your POST requests (RFC 1034/1035).
-* See [this screenshot](bugs/Do-you-want-to-add-it_But-no-way-to-say-YES.png). Small payments asks "*Do you want to add it?*" (a fee) - no way to answer. Clicking "Pay" doesn't work.
+* "[*Do you want to add it?*](bugs/Do-you-want-to-add-it_But-no-way-to-say-YES.png)" (a fee) when small amounts - but no way to answer. Clicking "Pay" doesn't work.
+
+
 
 *Additional to those*:
 
-* Your [tutorial](https://developers.coinbase.com) is not error-free: Throughout my .py code below ... I have *caught some exceptions* caused by wrong syntax, or implementation. You'll see them either in the [source code](cb/) or in the [output](output/).
-* Also please read [my ideas](README-other-ideas.md) what else could be useful extensions, for future versions of your API.
+* Please read [my ideas](README-other-ideas.md) what else could be useful extensions, for future versions of your API.
+* In my .py code below ... I have *caught some exceptions* caused by wrong syntax, or implementation, while I was working through your [tutorial](https://developers.coinbase.com). You'll see them either in the [source code](cb/) or in the [output](output/).
 
 ## Working code
 The main purpose of my .py code was to try out all explained functions once, so that I  better understand the whole coinbase system. But I am publishing it, because it might help others.
