@@ -1,5 +1,18 @@
 # client.verify_callback
 
+## Newsflash: Live presentation
+
+I implemented the test into my supersimple cherrypy webhook server:
+
+* see it live at: http://208.68.38.174
+* [cbWebhookPrinter.py](../cb/cbWebhookPrinter.py) --> verify_callback(body, headers)
+
+Bug 3 is not solved. But I had an idea ...
+
+---
+---
+---
+
 ## Bug 1 [fixed]
 (When I tried this,) the Python [library page](https://github.com/coinbase/coinbase-python#merchant-callbacks) said:
 
@@ -17,8 +30,7 @@ BUT there is no 'X-Signature' in request.META
      
 instead there is a 'HTTP_CB_SIGNATURE' (684-letters long) - the new name.
 
-Trying with that ...
-
+[Fixed] The library page was improved now.
 	 
 ## Bug 2
 
@@ -59,12 +71,16 @@ BUT I get a
 
     False
 	
-These are the inputs:
+These are example inputs:
 
     request.body:  
-    {"id":"9e9bccb2-4945-5758-b3fd-9bf95a9b74ae","type":"wallet:orders:paid","data":{"resource":{"id":"6cd1265f-c1e7-53c4-86e0-a865fc7773bd","code":"T0Q2I24V","type":"order","name":"Buy Time with a Specialist in Cryptocurrencies.","description":"Let us SKYPE: I can CODE for you, RESEARCH your topics, ANALYZE your DATA, etc.","amount":{"amount":"200.00","currency":"USD"},"receipt_url":"https://www.coinbase.com/orders/cbadd77dd9282ce6641a9e251823d955/receipt","resource":"order","resource_path":"/v2/orders/6cd1265f-c1e7-53c4-86e0-a865fc7773bd","status":"paid","bitcoin_amount":{"amount":"0.00190000","currency":"BTC"},"payout_amount":null,"bitcoin_address":"n1J3gxZizHH8tvuNqNLwa47r8LG6M7WEGD","refund_address":"mscbFx7qRxfyTuJLLTLLw1uy3paosjw3Ts","bitcoin_uri":"bitcoin:n1J3gxZizHH8tvuNqNLwa47r8LG6M7WEGD?amount=0.0019\u0026r=https://sandbox.coinbase.com/r/569d304e124da0493b0001a2","notifications_url":null,"paid_at":"2016-01-18T18:35:00Z","mispaid_at":null,"expires_at":"2016-01-18T18:49:54Z","metadata":{"duration":"4 hours","price":"200 USD","id":8},"created_at":"2016-01-18T18:34:54Z","updated_at":"2016-01-18T18:35:00Z","customer_info":null,"transaction":{"id":"0c847fe5-6333-5c9c-89dc-35533f53f6b5","resource":"transaction","resource_path":"/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3/transactions/0c847fe5-6333-5c9c-89dc-35533f53f6b5"},"mispayments":[],"refunds":[]}},"user":{"id":"8a7b0da0-ff92-5cb6-b42c-2b0d5c26e438","resource":"user","resource_path":"/v2/users/8a7b0da0-ff92-5cb6-b42c-2b0d5c26e438"},"account":{"id":"d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3","resource":"account","resource_path":"/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3"},"delivery_attempts":0,"created_at":"2016-01-18T18:35:00Z","resource":"notification","resource_path":"/v2/notifications/9e9bccb2-4945-5758-b3fd-9bf95a9b74ae"}
+    {"id":"ebd32071-1a1c-5967-9bb8-e029b827bb8e","type":"wallet:orders:paid","data":{"resource":{"id":"f157428b-8ad8-5d6b-a7b0-7304153e79b7","code":"TJYMUE02","type":"order","name":"test","description":null,"amount":{"amount":"0.00010100","currency":"BTC"},"receipt_url":"https://www.coinbase.com/orders/9f48d154e06e9434ae86825dd8d5028a/receipt","resource":"order","resource_path":"/v2/orders/f157428b-8ad8-5d6b-a7b0-7304153e79b7","status":"paid","bitcoin_amount":{"amount":"0.00010100","currency":"BTC"},"payout_amount":null,"bitcoin_address":"mjSU7wACi27LoXUj6TWERGZUorcsAEMbSk","refund_address":"mx7B2hjGuEPV8MkQYy2Up3bFiUcUGTBuYB","bitcoin_uri":"bitcoin:mjSU7wACi27LoXUj6TWERGZUorcsAEMbSk?amount=0.000101\u0026r=https://sandbox.coinbase.com/r/56a7cc50ade0d644b7000150","notifications_url":null,"paid_at":"2016-01-26T19:43:16Z","mispaid_at":null,"expires_at":"2016-01-26T19:58:12Z","metadata":{},"created_at":"2016-01-26T19:43:12Z","updated_at":"2016-01-26T19:43:16Z","customer_info":null,"transaction":{"id":"ae0acc03-f1cb-5b9a-bef0-b5106ba11500","resource":"transaction","resource_path":"/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3/transactions/ae0acc03-f1cb-5b9a-bef0-b5106ba11500"},"mispayments":[],"refunds":[]}},"user":{"id":"8a7b0da0-ff92-5cb6-b42c-2b0d5c26e438","resource":"user","resource_path":"/v2/users/8a7b0da0-ff92-5cb6-b42c-2b0d5c26e438"},"account":{"id":"d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3","resource":"account","resource_path":"/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3"},"delivery_attempts":0,"created_at":"2016-01-26T19:43:17Z","resource":"notification","resource_path":"/v2/notifications/ebd32071-1a1c-5967-9bb8-e029b827bb8e"}
     
-    request.META:  
-    {'RUN_MAIN': 'true', 'SERVER_SOFTWARE': 'WSGIServer/0.1 Python/2.7.9', 'SCRIPT_NAME': u'', 'REQUEST_METHOD': 'POST', 'SERVER_PROTOCOL': 'HTTP/1.1', 'HOME': '/root', 'LANG': 'en_US.UTF-8', 'SHELL': '/bin/bash', 'SERVER_PORT': '8000', 'HTTP_CB_VERSION': 'BETA', 'HTTP_HOST': '', 'HTTP_ACCEPT': '*/*', 'wsgi.version': (1, 0), 'wsgi.run_once': False, 'SSH_TTY': '/dev/pts/5', 'wsgi.errors': <open file '<stderr>', mode 'w' at 0x7f47455e31e0>, 'wsgi.multiprocess': False, 'MAIL': '/var/mail/root', 'SSH_CONNECTION': '90.153.73.247 55787 208.68.38.174 22', 'PATH_INFO': u'/buyme/hook/9999999876543765456/', 'SSH_CLIENT': '90.153.73.247 55787 22', 'LOGNAME': 'root', 'USER': 'root', 'QUERY_STRING': '', 'PATH': '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'TERM': 'xterm', 'HTTP_USER_AGENT': 'Faraday v0.9.1', 'HTTP_CONNECTION': 'close', 'SERVER_NAME': 'debian-512mb-nyc1-01-BUYME', 'REMOTE_ADDR': '54.175.255.207', 'SHLVL': '1', 'wsgi.url_scheme': 'http', 'HTTP_CB_SIGNATURE': 'RzH8wD+axfL7oWFma23k0jH8Ua0aJWq/XdG9ZtwzUEp+H1340HCPYBoKRjAgHd3w2/WKznuZDIFSnMc3Vex4Uep8csB9la2UwJCsasgprFKv468vnMIu/Sjuwo0gmq4O0WHOWuhUIGfoyAijHTUc1o4s3zsmiM2xr26ytrh1bBVgh61KTwOVW4SkS3iqIO3STeupbF4C13ySwn8w2HxJezdbV66VXfbTwir07jBCKa6xqnNnhKZrTA1YFO6AMsR353zfd0L/J4exdiCOUZ2x8D3p2rzKXVZ6dddIKwJxcC7msDyBFS5bwR8EKiU5RVztmsZrKzg5swmsb+N4ozzOMYQMmuAOYTmq1JBvUmCVX29LvzoUSRMMJ0dBAs95b5k+LwnwwrXSX2C7XnqN208ZuKJk7BqU3IlONrdPIcDQ72hJcIyq+HuvFluxxLa8iBseXC3Yu0Ia5vwm2irpRFUwwyxmXcgsCYLs9tCoT5Sph2bVPmOH+t3h42eb34e4IB2KhAjuTqK5rxvvBg3JnxxbZpOUWFTAdZ5+vZUkwL/fE17+mCrEQ6cPkT3iY38kTcL9dSIeRfpt8Ki5DZMDgue7w5W+/V1TdpqzpVx8SrEJlbaRA9uXx3ZVHgILLUvMvPr0kp5ARnD9Wh+EvUTNI1BxFU7kqE0RK1e1XytpXxL17gk=', 'CONTENT_LENGTH': '1820', 'wsgi.input': <socket._fileobject object at 0x7f473b714cd0>, 'wsgi.multithread': True, 'TZ': 'UTC', '_': '/usr/bin/python', 'GATEWAY_INTERFACE': 'CGI/1.1', 'OLDPWD': '/root', 'PWD': '/root/buyme', 'DJANGO_SETTINGS_MODULE': 'djangosite.settings', 'CONTENT_TYPE': 'application/json', 'wsgi.file_wrapper': <class wsgiref.util.FileWrapper at 0x7f4741f394c8>, 'REMOTE_HOST': '', 'HTTP_ACCEPT_ENCODING': ''}
+    CB_SIGNATURE:
+      
+    Ng+7+Pvye8oHadL07x9MZ8KNIDwajdrv1RkqiEPpHA93dlyc1OjB2Ruogevdq92G+X5grB1OAtuEgMTwh1tTs0UdN9dx0iLIV+Op84AJeE/5K471mDeyuscryLTgVLVlaryfTZtlcZI+DOXPwFvBe19TRcbJ6ZAHug6PwdAsXAqpvXKS18NdG8gh/Tti66IOUE6rKObgvcx2ZVOYXMIUcpJ/G7Hih33Qg4gIRyMk7+GIkX0EkTGNSJDL0z2U9h3GZ2G+iXniNzeI/cJK6hSpJe1NcRvAuA8qUXQ564BD7ZD31DTO3Kjy+rSASG20dJSh8QuxnfpYoDYshisX2PuHSR93fC9EcARre5HXd3yhr8L4S3c+IvySSpSOz6XZPIKtMLwkGnySln4aIx7hG5XJnpjRf3PEeWHwv19wXaqhRG/pXrnMEbU8aPqo9YDJ1AoLerOFtqzQCCp32MDenrxG8UAZuyusmiXW7n0qtaClzilBMtA6v+zQ77hYC4vbwmz+J2IeLGOq7BcQlMurCSSxRvh/lUDrZ9DBIxmHP7JFugMC+qXG/zOjTFA0zNbRL8zteI4iI8jnj5ITvG4wfhfP28m2Uy4FnMZUlnRDprrHtTHzY3dK7UkUo1UAtUR0wO2pbGzT890P4aYNCB0B7jOtv13UXy+ng8okkJxionxRO50=
+    
+    
+Idea: Is that perhaps a sandbox specific problem?  
+Does the sandbox use a different public key?
 
-Idea: Is that a sandbox specific problem perhaps? Does the sandbox use a different public key?

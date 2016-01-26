@@ -5,7 +5,7 @@ Learning (and improving) the Coinbase tutorial https://developers.coinbase.com/
 I could find these bugs in the Python library, and/or the server code:   
 
 * [client.get_notifications()](output/BUG_client.get_notifications()_with-API-answer.txt) - this API answer creates a ``TypeError: unhashable type: 'dict'``.
-* [verify_callback()](output/BUGS_verify_callback.md) is outdated? A sequence of missing data, and bugs.
+* [verify_callback()](output/BUGS_verify_callback.md) - sequence of missing data - and a bug?
 * [invalid (empty) HTTP_HOST header](output/BUG_invalid-HTTP_HOST-header.md)  **! <-- NEW CODE cbWebhookPrinter.py <-- !**
 * very small payments ask "*Do you want to add it?*" but do not allow to answer. Clicking "Pay" doesn't do anything. See [this screenshot](output/BUG_Do-you-want-to-add-it_But-no-way-to-say-YES.png).
 

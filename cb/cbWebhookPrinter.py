@@ -108,6 +108,18 @@ def headersTable(request):
                      for K, V in request.headers.items()] )
 
 
+def verify_callback(body, headers, dbg=False):
+  """
+  Verifies that the body is correctly signed, 
+  with 'coinbase-callback.pub' public key
+  See 'BUGS_verify_callback.md'
+  """ 
+  if dbg: print headers['Cb-Signature']
+  if dbg: print body
+  client = Client(API_KEY, API_SECRET, base_api_uri=API_BACKEND_URL)
+  return client.verify_callback(body, headers['Cb-Signature'])
+
+
 def tryJsonOrPlain(text):
   """Return json formatted, if possible. Otherwise just return."""
   try:
@@ -127,19 +139,34 @@ class HeaderPrinter(object):
 
 
 class HeaderPrinterWebService(object):
-  """webservice with GET and POST"""
+  """Webservice with GET and POST."""
   
   exposed = True 
   lastNotification="" # supersimple temporary storage
 
   def GET(self):
+    """Returns the last notification (from RAM), or 'None'"""
     cherrypy.response.headers['Content-Type'] = 'text/plain'
     return self.lastNotification or "None"
 
   def POST(self, length=8):
-    R = headersTable(cherrypy.request)
-    R+= "\n" +"-"*70 + "\n" + tryJsonOrPlain(cherrypy.request.body.read())
+    """The webhook: Accepts any data, saves to simple string in RAM."""
+    
+    request=cherrypy.request
+    
+    R = headersTable(request)
+    divider = "\n" +"-"*70 + "\n"
+    R+= divider
+
+    body=request.body.read()
+    
+    verified = verify_callback(body, request.headers)
+    R+= "coinbase.wallet.client.verify_callback() = %s" % verified 
+    R+= divider
+     
+    R+= tryJsonOrPlain(body)
     self.lastNotification=R
+    
     return "Thanks."
     # curl -X POST -d {"test":42} -H "Content-Type: application/json" http://localhost/hook  
     # curl -X POST -d {"test":42} -H "Content-Type: application/json" http://208.68.38.174/hook
