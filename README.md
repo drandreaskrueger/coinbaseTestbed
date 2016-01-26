@@ -4,10 +4,10 @@ Learning (and improving) the Coinbase tutorial https://developers.coinbase.com/
 ## Inconsistencies, typos, bugs
 I could find these bugs in the Python library, and/or the server code:   
 
-* [client.get_notifications()](output/BUG_client.get_notifications()_with-API-answer.txt) - this API answer creates a ``TypeError: unhashable type: 'dict'``.
-* [verify_callback()](output/BUGS_verify_callback.md) - sequence of missing data - and a bug?
-* [invalid (empty) HOST header](output/BUG_empty-HOST-header.md)  - Django refuses your POST requests (RFC 1034/1035).
-* See [this screenshot](output/BUG_Do-you-want-to-add-it_But-no-way-to-say-YES.png). Small payments asks "*Do you want to add it?*" (a fee) - no way to answer. Clicking "Pay" doesn't work.
+* [client.get_notifications()](bugs/client.get_notifications()_TypeError.txt): - this API answer creates a ``TypeError: unhashable type: 'dict'``.
+* [verify_callback()](bugs/verify_callback()_False.md) - missing data, and a bug?
+* [invalid (empty) HOST header](bugs/HOST-header_empty.md) - Django refuses your POST requests (RFC 1034/1035).
+* See [this screenshot](bugs/Do-you-want-to-add-it_But-no-way-to-say-YES.png). Small payments asks "*Do you want to add it?*" (a fee) - no way to answer. Clicking "Pay" doesn't work.
 
 *Additional to those*:
 
@@ -31,7 +31,7 @@ The latter produces (among other things) a neat table of [all the currencies](ou
 
 * [cbPersonal.py](cb/cbPersonal.py) = your API key goes here. Do all this with a [sandbox](https://sandbox.coinbase.com) account!
 
-All this is work in progress, perhaps more to come ... current version: **v05**
+All this is work in progress, perhaps more to come ... current version: **v06**
 
 ---
 

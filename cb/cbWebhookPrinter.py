@@ -4,7 +4,7 @@
 @summary: Reporting bug in coinbase server if webhook is an IP address.
 
           Problematic: Makes Django fail to receive checkout notifications.
-          See 'BUG_empty-HOST-header.md' for details. 
+          See 'HOST-header_empty.md' for details. 
 
           This is a:
                      Simple cherrypy webserver with GET and POST on '/' route.
@@ -115,7 +115,7 @@ def verify_callback(body, headers, dbg=False):
   """
   Verifies that the body is correctly signed, 
   with 'coinbase-callback.pub' public key
-  See 'BUGS_verify_callback.md'
+  See 'verify_callback()_False.md'
   """ 
   if dbg: print headers['Cb-Signature']
   if dbg: print body
