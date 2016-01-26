@@ -46,7 +46,7 @@ It would be useful to be able to simply trigger a dummy notification (after a ne
     
 to test my notification callback webhook that accepts the POST requests.  
 
-You will not believe how many *payments* I have done by now, just to debug my webhook-callback functionality (to find your [nasty bug](output/BUG_invalid-HTTP_HOST-header.md) alone costed me many dozens). A dummy callback would help a lot.
+You will not believe how many *payments* I have done by now, just to debug my webhook-callback functionality (to find your [nasty bug](output/BUG_empty-HOST-header.md) alone costed me many dozens). A dummy callback would help a lot.
 
 Similarly, for a specific checkout, with its own ``notifications_url`` 
 

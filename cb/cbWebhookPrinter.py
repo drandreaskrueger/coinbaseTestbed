@@ -4,7 +4,7 @@
 @summary: Reporting bug in coinbase server if webhook is an IP address.
 
           Problematic: Makes Django fail to receive checkout notifications.
-          See 'BUG_invalid-HTTP_HOST-header.md' for details. 
+          See 'BUG_empty-HOST-header.md' for details. 
 
           This is a:
                      Simple cherrypy webserver with GET and POST on '/' route.
