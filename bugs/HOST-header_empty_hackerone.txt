@@ -1,0 +1,25 @@
+https://hackerone.com/reports/113936
+
+
+Empty=Invalid HOST header in notifications sent to IP addresses
+
+The consequence:
+Django refuses to accept your POST requests, with this debug-logging error message:
+
+"Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035."
+
+
+It probably(?!)  happens because your notifications are sent to my IP-address-only server (without a DNS entry).
+
+Please see these detailed descriptions here:
+https://github.com/drandreaskrueger/coinbaseTestbed/blob/master/bugs/HOST-header_empty.md
+
+I even created a test server where you can see the bug live: http://208.68.38.174/
+
+
+I know this is not a security breach bug. 
+But it is a real bug, your notifications do not comply with RFC 1034/1035.
+And it has cost me a lot of time to find, pin down, and document well. Please reward my work.
+
+Thanks a lot.
+Andreas

@@ -1,0 +1,40 @@
+https://hackerone.com/reports/113940
+
+client.verify_callback(request.body, signature) == False (at least in sandbox)
+
+Please see my examination here:
+https://github.com/drandreaskrueger/coinbaseTestbed/blob/master/bugs/verify_callback()_False.md
+
+I even wrote a server where you can see and test it live: 
+http://208.68.38.174 --> coinbase.wallet.client.verify_callback() = False
+
+
+You yourself are advising to verify the callback: 
+
+  Verify notification authenticity
+  https://github.com/coinbase/coinbase-python#notificationscallbacks
+
+
+
+I found 3 issues with your verify_callback function:
+
+1) [fixed] just an error in the library documentation
+2) Your key `coinbase-callback.pub` is missing from `pip install coinbase` - so verify_callback() ALWAYS fails.
+Once that is patched ...
+3) Calling `verify_callback` evaluates to False.
+
+I do not know why. 
+Perhaps the public key from the official Python library (see (2) ) was updated?
+Perhaps the public key of the sandbox is different from the mainnet public key API?
+Perhaps it has a third reason?
+
+I don't know why - but it leads coders to NOT verify the callback notification, 
+which in turn can lead to less secure apps running on top of your API.
+
+So ... this is security relevant, for sure.
+
+
+
+Please reward the work I have put into this. 
+Thanks,
+Andreas
