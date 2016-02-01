@@ -13,7 +13,7 @@ I could find these bugs in the Python library, and/or the server code:
 
 *Additional to those*:
 
-* Please read [my ideas](README-other-ideas.md) what else could be useful extensions, for future versions of your API.
+* **Please read [my ideas](README-other-ideas.md) what else could be useful extensions, for future versions of your API.**
 * In my .py code below ... I have *caught some exceptions* caused by wrong syntax, or implementation, while I was working through your [tutorial](https://developers.coinbase.com). You'll see them either in the [source code](cb/) or in the [output](output/).
 
 ## Working code
@@ -41,8 +41,43 @@ All this is work in progress, perhaps more to come ... current version: **v07**
 
 ---
 
+## Time estimates
+Using my new tool [FiledatePunchcard](https://github.com/drandreaskrueger/FiledatePunchcard) to give a rough estimate of the time that I have invested into this. 
 
-## donation ware!
+    Each 'x' represents a 30 minute block:
+    (Filled up blocks of size 6, i.e. approx 180 minutes.)
+    2016-01-10|-----------------------------------------------x|
+    2016-01-11|x                                               |
+    2016-01-12|                                           xxxxx|
+    2016-01-13|xx         xxxxxxx                    x       x |
+    2016-01-14|                                                |
+    2016-01-15|                         x                      |
+    2016-01-16|                                                |
+    2016-01-17|                                     x          |
+    2016-01-18|                                      xx        |
+    2016-01-19|              xxxxxxxxx                         |
+    2016-01-20|                                          x     |
+    2016-01-21|            xxxxxx                              |
+    2016-01-22|                             x                  |
+    2016-01-23|                                                |
+    2016-01-24|                                                |
+    2016-01-25|                                                |
+    2016-01-26|                                    xxxxxxxxxxxx|
+    2016-01-27|xxxxxxx                                         |
+    2016-01-28|                                                |
+    2016-01-29|                                                |
+    2016-01-30|                                                |
+    2016-01-31|     x                                          |
+    2016-02-01|                                          x-----|
+    
+    With 30-minute blocks, the number of hours is approx 30.0
+
+Probably more, because the above is only registering filedates, which are overwritten with each (non-committed) file saving. And additional to that approx. 15 hours on January 8th-10th (before I made a git committed version of this). 
+
+## Donation ware!
 (C) 2016 Andreas Krueger  
 **If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)   
 No Coinbase account yet? Please [use my referral](https://www.coinbase.com/join/andreaskrueger), to give me and you 10$ bonus.  
+
+## Hire me
+hire (at) andreaskrueger (dot) de
