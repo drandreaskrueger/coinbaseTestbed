@@ -23,3 +23,195 @@ And it has cost me a lot of time to find, pin down, and document well. Please re
 
 Thanks a lot.
 Andreas
+
+
+######
+
+Empty=Invalid HOST header in notifications sent to IP addresses
+State	Informative (Closed)
+Type	Missing Best Practice
+Participants	andreascoinbase2ttoko
+Collapse
+ADD RESEARCHER SUMMARY
+TIMELINE
+andreas
+andreas reported a bug to Coinbase.	
+show raw
+Feb 1st
+Empty=Invalid HOST header in notifications sent to IP addresses
+
+The consequence:
+Django refuses to accept your POST requests, with this debug-logging error message:
+
+"Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035."
+
+It probably(?!) happens because your notifications are sent to my IP-address-only server (without a DNS entry).
+
+Please see these detailed descriptions here:
+https://github.com/drandreaskrueger/coinbaseTestbed/blob/master/bugs/HOST-header_empty.md
+
+I even created a test server where you can see the bug live: http://208.68.38.174/
+
+I know this is not a security breach bug. 
+But it is a real bug, your notifications do not comply with RFC 1034/1035.
+And it has cost me a lot of time to find, pin down, and document well. Please reward my work.
+
+Thanks a lot.
+Andreas
+
+
+ttoko closed the bug and changed the status to Informative.	Feb 1st (8 days ago)
+Hi,
+
+Bugs without security implications should be reported to support@coinbase.com. Based on your initial description, there do not appear to be any security implications as a direct result of this behavior. If you disagree, please reply with additional information describing your reasoning. Including a working proof-of-concept can be incredibly helpful in our assessment of these claims.
+
+
+andreas posted a comment.	Updated Feb 1st (8 days ago)
+Hi ttoko
+Thx for your quick answer.
+
+Including a working proof-of-concept can be incredibly helpful in our assessment of these claims.
+
+Yes, I know. That is why I put so much work into this:
+
+I even created a test server where you can see the bug live: http://208.68.38.174/
+
+Thanks.
+
+
+coinbase2 posted a comment.	Feb 1st (8 days ago)
+We're going to investigate this and put out a fix if it's reproducible but there are no security implications so this wouldn't be eligible for a bounty.
+
+
+andreas posted a comment.	Updated Feb 1st (8 days ago)
+We're going to investigate this
+
+Thanks a lot.
+
+no security implications
+
+There is indeed a security implication. A "domino effect security implication". 
+Your bug forces Django apps to run with highly insecure settings.
+
+See chapter "Bug" in README of my Coinbase example app /buyme/
+
+https://github.com/drandreaskrueger/buyme#bug
+
+That /buyme/ is actually the app with which I originally found that bug in your system.
+
+
+coinbase2 posted a comment.	Feb 5th (4 days ago)
+This issue is now fixed. I maintain there are no direct security implications here; a production environment with a domain name and SSL enabled would not have encountered this bug.
+
+
+andreas posted a comment.	Updated Feb 6th (4 days ago)
+This issue is now fixed.
+
+Nope:
+http://208.68.38.174/
+
+
+coinbase2 posted a comment.	Feb 8th (about 1 day ago)
+I can no longer reproduce this bug. The Host header is being set correctly afaict.
+
+1 attachment:
+Screen_Shot_2016-02-08_at_12.23.10_PM.png
+
+andreas posted a comment.	Feb 9th (20 hrs ago)
+Closing an issue which is not solved ... is rude.
+
+But you seem to have only one goal in mind - not to pay. That is not my goal, so you are loosing me now.
+
+I am not wasting much more of my precious time on your faulty system.
+
+Go through my repo, and you will find many more bugs, typos, sloppyness, outright mess ... that I had identified while I worked through the tutorial. https://github.com/drandreaskrueger/coinbaseTestbed Especially look at all the code in the /cb/ folder.
+
+Or don't.
+
+Why do you think I am writing:
+
+| Nope:
+| http://208.68.38.174/
+
+1) Go there.
+2) Read.
+3) Do it. Pay with sandbox money, come back to the same page. 
+4) Reload. examine the response.
+
+This is what I see. Now. 
+After your "fix".
+
+The "Host: " field is still empty.
+
+Remote-Addr: 54.175.255.198
+Content-Length: 1669
+Accept-Encoding: 
+Host: 
+Accept: /
+User-Agent: Faraday v0.9.1
+Connection: close
+Cb-Signature: bq58E8+d3c+WL8zNbQF+sFhLUhQ8+LvZn1Gsrj8E8LpRGSvjIew2heogE9fv1EM2tvFgHPjiRJIHKeZ2+Ds8ODxNRdPpvK0YNGcB9SsdSZD1RKdsdkE4a3/wLiATbd9EKKrn+UAkgvAhtsbxJmuCagMln5VgQeohyQtRvGOrA4q2jO7M2bPyB6boyC8ocND+EOjavqJjkf16o7zmM8zQnL85uW36EyEwNPZgl21rGzkpDBxpNQIv9ZpvUOd+o7kvtULdwB+kKDn1CtFUAy0PRgtqsjenRvaabq1eEgg1vIKRVi+FyW8wbe697pLIGdl+ZOUmgtQSZEFrHlSu6w18rCoaOJ1XA+4EKzZnPVeZYzuCgqxyVyNVR+xvtlGigvuDnmJ7wgMwh2uSZQEagiMFljFPDWmNlG6Jw2qwIB1elrMliPvpEEpRP5Pe+p4JW41PSatdQbtt5ZNHZUI5l3w4p5AUdULWU6/Nis/fKCV3l3a6lXAAOATZdh7yc61fGnth5irnyCz2RT0HYglGQslxAxMqvP/a9jf8Z3+xHaSQ2tLXztQGPNh2w6k1iSY2+ZqIsXsZILJnRK3IddbWq+bkz92jh93ly1eKoc8grPrZejUMRyipnXmei6jpscrZ9DCqBXyLbAXDOXM35HV/tCceP1sr0IxsxmuVqQws+ilGQ98=
+Cb-Version: BETA
+
+Content-Type: application/json
+
+coinbase.wallet.client.verify_callback() = False
+
+{u'account': {u'id': u'd8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3',
+u'resource': u'account',
+u'resource_path': u'/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3'},
+u'additional_data': {},
+u'created_at': u'2016-02-09T04:07:25Z',
+u'data': {u'amount': {u'amount': u'0.00010100', u'currency': u'BTC'},
+u'bitcoin_address': u'mhwNQYWjT93CZaVWZKZoSY1pLQY9ZRUEqD',
+u'bitcoin_amount': {u'amount': u'0.00010100', u'currency': u'BTC'},
+u'bitcoin_uri': u'bitcoin:mhwNQYWjT93CZaVWZKZoSY1pLQY9ZRUEqD?amount=0.000101&r=https://sandbox.coinbase.com/r/56b965f66c7d4a2e7e00012a',
+u'code': u'HJ30VW0O',
+u'created_at': u'2016-02-09T04:07:18Z',
+u'customer_info': None,
+u'description': None,
+u'expires_at': u'2016-02-09T04:22:18Z',
+u'id': u'7068e5d2-52bd-568e-8631-7e9730187a9f',
+u'metadata': {},
+u'mispaid_at': None,
+u'mispayments': [],
+u'name': u'test',
+u'notifications_url': None,
+u'paid_at': u'2016-02-09T04:07:25Z',
+u'payout_amount': None,
+u'receipt_url': u'https://www.coinbase.com/orders/9f0dc829c3e8b76f044c182d2d7296a1/receipt',
+u'refund_address': u'n45oTV3fVVyCHNxE8cxDsQNajUsE1XPpqt',
+u'refunds': [],
+u'resource': u'order',
+u'resource_path': u'/v2/orders/7068e5d2-52bd-568e-8631-7e9730187a9f',
+u'status': u'paid',
+u'transaction': {u'id': u'd8586328-4e18-5f2a-bebb-c29b4944c8e6',
+u'resource': u'transaction',
+u'resource_path': u'/v2/accounts/d8cd3bdd-e9b6-5b89-ac2e-0b5db0fa7ee3/transactions/d8586328-4e18-5f2a-bebb-c29b4944c8e6'},
+u'type': u'order',
+u'updated_at': u'2016-02-09T04:07:25Z'},
+u'delivery_attempts': 0,
+u'id': u'4e39a7a2-5d30-5820-9e9e-a5bca06b43b8',
+u'resource': u'notification',
+u'resource_path': u'/v2/notifications/4e39a7a2-5d30-5820-9e9e-a5bca06b43b8',
+u'type': u'wallet:orders:paid',
+u'user': {u'id': u'8a7b0da0-ff92-5cb6-b42c-2b0d5c26e438',
+u'resource': u'user',
+u'resource_path': u'/v2/users/8a7b0da0-ff92-5cb6-b42c-2b0d5c26e438'}}
+
+Code to run that server:
+
+https://github.com/drandreaskrueger/coinbaseTestbed/blob/master/cb/cbWebhookPrinter.py
+
+
+coinbase2 posted a comment.	Feb 9th (8 hrs ago)
+Ah, you were testing using the sandbox. The fix had not yet been deployed to sandbox, only production.
+
+Fix is now deployed to sandbox as well.
+
+
+andreas posted a comment. (Edit message)	Feb 10th (11 mins ago)
+Finally. Congrats. Unbelievable - you've really done it.
+Well done, my dear. Is everything in Coinbase such hardship?
+
+Have a nice life.

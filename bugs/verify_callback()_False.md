@@ -1,6 +1,12 @@
 # client.verify_callback
+It is the little bugs that can cost you much time during developing ...
 
-## Newsflash: Live presentation
+## Newsflash:
+They "hope to have a fix for that soon". 
+
+Until then ... perhaps do not use coinbase apps? Because their callbacks might not be verifiable. 
+
+## Live presentation
 
 I implemented the test into my supersimple cherrypy webhook server:
 
@@ -60,6 +66,7 @@ so I manually downloaded that key:
     cd /usr/local/lib/python2.7/dist-packages/coinbase/wallet/
     wget https://raw.githubusercontent.com/coinbase/coinbase-python/master/coinbase/wallet/coinbase-callback.pub
     
+**News**: Confirmed. And: "We hope to have a fix for that soon." 
 	
 ### Bug 3
 
@@ -84,3 +91,11 @@ These are example inputs:
 Idea: Is that perhaps a sandbox specific problem?  
 Does the sandbox use a different public key?
 
+
+**News**: Yes. My hypothesis was confirmed. Different private key for sandbox, but undocumented.
+
+---
+
+## Donation ware!
+(C) 2016 Andreas Krueger  
+**If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  

@@ -1,11 +1,28 @@
-# BUG: 
+# BUG [fixed]
 ## invalid HTTP_HOST header in callbacks to IP addresses
+Man, they are difficult ...
+
+---
+--- 
+
+## Newsflash: They've fixed it (February 10th)
+Finally - they've done it. 
+
+It needed 7 interactions, and almost 3 weeks. Hard to believe. They kept on repeating: It has never been / is not an issue / anymore. But then they've met me \*g\*:   
+
+If I had not *insisted* -fiercely- *three more times* after my initial submission - **this issue would probably have never been fixed**.
+
+Not only a strange and difficult-to-find problem - but also a strange company, really.  And ridiculously penny-pinching: Over 100 mio USD of investors' hopes - but not willing to reward my good work here, not even a bit? Is that wise?
+
+**Opulence degenerates** ...
+
+But all that is *their* problem. Not interested in bullshit. My highest goal are well working systems. Read it:
 
 ---
 ---
----
 
-## NEWSFLASH: Demo server (January 22st)
+
+## Demo server (January 22st)
 
 New 'foobar'-like demonstration code. Shows the problem in less lines:
 
@@ -15,9 +32,7 @@ LIVE: Running on my IP-only-droplet (at [digitalocean](https://github.com/drandr
 
 * http://208.68.38.174/
 
----
----
----
+
 
 Whew, this took me many many hours to debug. Of course, at first I supposed that *my* code is buggy. What a strange problem.  
 
@@ -89,5 +104,8 @@ Then, when a payment is authorized on that /checkout/ page, this arrives:
     Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
     [19/Jan/2016 09:09:13] "POST /buyme/hook/9999999876543765456/ HTTP/1.1" 400 26
  
- 
- 
+---
+
+## Donation ware!
+(C) 2016 Andreas Krueger  
+**If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)   

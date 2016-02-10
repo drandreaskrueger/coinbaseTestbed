@@ -1,12 +1,12 @@
 # coinbaseTestbed
-Learning (and improving) the Coinbase tutorial https://developers.coinbase.com/
+Learning, and improving, the [Coinbase tutorial](https://developers.coinbase.com).
 
 ## Inconsistencies, typos, bugs
 I could find these bugs in the Python library, and/or the server code:   
 
-* [client.get_notifications()](output/cbNotificationsBug.py.txt) - the [official code](cb/cbNotificationsBug.py) creates a ``TypeError: unhashable type: 'dict'``.
-* [verify_callback()](bugs/verify_callback()_False.md) - missing data, and a bug?
-* [invalid (empty) HOST header](bugs/HOST-header_empty.md) - Django refuses your POST requests (RFC 1034/1035).
+* [client.get_notifications()](output/cbNotificationsBug.py.txt) - the [official code](cb/cbNotificationsBug.py) creates a ``TypeError: unhashable type: 'dict'`` 
+* [verify_callback()](bugs/verify_callback()_False.md) - missing data, and a bug.
+* [invalid (empty) HOST header](bugs/HOST-header_empty.md) - Django refuses your POST requests (RFC 1034/1035). [**Fixed** - but [read it](bugs/HOST-header_empty.md), really]
 * "[*Do you want to add it?*](bugs/Do-you-want-to-add-it_But-no-way-to-say-YES.png)" (a fee) when small amounts - but no way to answer. Clicking "Pay" doesn't work.
 
 
