@@ -37,7 +37,7 @@ Do all this with a [sandbox](https://sandbox.coinbase.com) account!
 
 (*) This produces (among other things) a neat table of [all the currencies](output/1BitcoinInAllCurrencies-20160110.txt) (In non-fantasy exchange rates only when not on sandbox but on real api.).
 
-All this is work in progress, perhaps more to come ... current version: **v07**
+All this is work in progress, perhaps more to come ... current version: **v08**
 
 ---
 
@@ -46,6 +46,7 @@ Using my new tool [FiledatePunchcard](https://github.com/drandreaskrueger/Fileda
 
     Each 'x' represents a 30 minute block:
     (Filled up blocks of size 6, i.e. approx 180 minutes.)
+    
     2016-01-10|-----------------------------------------------x|
     2016-01-11|x                                               |
     2016-01-12|                                           xxxxx|
@@ -67,20 +68,29 @@ Using my new tool [FiledatePunchcard](https://github.com/drandreaskrueger/Fileda
     2016-01-28|                                                |
     2016-01-29|                                                |
     2016-01-30|                                                |
-    2016-01-31|     x                                          |
-    2016-02-01|                                          x-----|
+    2016-01-31|                                                |
+    2016-02-01|                                          x     |
+    2016-02-02|                                                |
+    2016-02-03|                                                |
+    2016-02-04|                                                |
+    2016-02-05|                                                |
+    2016-02-06|                                                |
+    2016-02-07|                                                |
+    2016-02-08|                                                |
+    2016-02-09|                                                |
+    2016-02-10|  xxxxxxxx--------------------------------------|
     
-    With 30-minute blocks, the number of hours is approx 30.0
+    With 30-minute blocks, the number of hours is approx 33.5
 
-Probably more, because the above is only registering filedates, which are overwritten with each (non-committed) file saving. And additional to that approx. 15 hours on January 8th-10th (before I made a git committed version of this). 
+Probably more, because the above is heuristics, and only registering filedates, which are overwritten with each (non-committed) file saving. And additional to that approx. 15 hours on January 8th-10th (before I made a git committed version of this). 
 
 ## Donation ware!
 (C) 2016 Andreas Krueger  
 **If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
-And: If you don't show that - then you are showing that you **don't** like this.
+*And: If you do not show that - then aren't you showing that you **don't** like this?*
 
-*No Coinbase account yet??* Then [use my referral](https://www.coinbase.com/join/andreaskrueger), to give me and you 10$ bonus.  
+**No Coinbase account yet??** Then [use my referral](https://www.coinbase.com/join/andreaskrueger), to give me and you 10$ bonus.  
 
-## Hire me
-if you can afford me: hire (at) andreaskrueger (dot) de  
+## Hire me ...
+... if you can afford me: hire (at) andreaskrueger (dot) de  
 
