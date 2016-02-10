@@ -41,10 +41,15 @@ text:
 
 That should help to debug your code.
 
-**News**: They'll  "be taking a look at it soon. "
+---
+
+### **News**
+
+They'll  "be taking a look at it soon."
 
 ---
 
 ## Donation ware!
 (C) 2016 Andreas Krueger  
 **If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
+And: If you don't show that - then you show that you **don't** like this.  

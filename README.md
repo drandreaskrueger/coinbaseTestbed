@@ -76,8 +76,11 @@ Probably more, because the above is only registering filedates, which are overwr
 
 ## Donation ware!
 (C) 2016 Andreas Krueger  
-**If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)   
-No Coinbase account yet? Please [use my referral](https://www.coinbase.com/join/andreaskrueger), to give me and you 10$ bonus.  
+**If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
+And: If you don't show that - then you are showing that you **don't** like this.
+
+*No Coinbase account yet??* Then [use my referral](https://www.coinbase.com/join/andreaskrueger), to give me and you 10$ bonus.  
 
 ## Hire me
-hire (at) andreaskrueger (dot) de
+if you can afford me: hire (at) andreaskrueger (dot) de  
+

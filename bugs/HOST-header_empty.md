@@ -108,4 +108,5 @@ Then, when a payment is authorized on that /checkout/ page, this arrives:
 
 ## Donation ware!
 (C) 2016 Andreas Krueger  
-**If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)   
+**If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
+And: If you don't show that - then you show that you **don't** like this.
