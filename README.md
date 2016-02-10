@@ -4,7 +4,7 @@ Learning, and improving, the [Coinbase tutorial](https://developers.coinbase.com
 ## Inconsistencies, typos, bugs
 I could find these bugs in the Python library, and/or the server code:   
 
-* [client.get_notifications()](output/cbNotificationsBug.py.txt) - the [official code](cb/cbNotificationsBug.py) creates a ``TypeError: unhashable type: 'dict'`` 
+* [client.get_notifications()](bugs/get_notifications-Bug.md) - the [official code](cb/cbNotificationsBug.py) creates a ``TypeError: unhashable type: 'dict'`` 
 * [verify_callback()](bugs/verify_callback()_False.md) - missing data, and a bug.
 * [invalid (empty) HOST header](bugs/HOST-header_empty.md) - Django refuses your POST requests (RFC 1034/1035). [**Fixed** - but [read it](bugs/HOST-header_empty.md), really]
 * "[*Do you want to add it?*](bugs/Do-you-want-to-add-it_But-no-way-to-say-YES.png)" (a fee) when small amounts - but no way to answer. Clicking "Pay" doesn't work.
@@ -29,7 +29,7 @@ Chapter by chapter:
 * [output](output/cbBuySellBtc.py.txt) of [cbBuySellBtc.py](cb/cbBuySellBtc.py) = testing: Guides ... [Buy and Sell BTC](https://developers.coinbase.com/docs/wallet/guides/buy-sell)
 * [output](output/cbPriceData.py.txt) of [cbPriceData.py](cb/cbPriceData.py) = testing: Guides ... [Price Data](https://developers.coinbase.com/docs/wallet/guides/price-data) (*) 
 * [output](output/cbAuthenticationBasics.py.txt) of [cbAuthenticationBasics.py](cb/cbAuthenticationBasics.py) - Custom authentication for Coinbase API = Guides ... [API Key Authentication](https://developers.coinbase.com/docs/wallet/api-key-authentication#making-a-request)
-* [output](output/cbNotificationsBug.py.txt) of [cbNotificationsBug.py](cb/cbNotificationsBug.py) - uses that custom authentication to get the provoking data. I hope that helps you to debug it.
+* [output](bugs/get_notifications-Bug.md) of [cbNotificationsBug.py](cb/cbNotificationsBug.py) - uses that custom authentication to get the provoking data. I hope that helps you to debug it.
 
 
 Do all this with a [sandbox](https://sandbox.coinbase.com) account!
