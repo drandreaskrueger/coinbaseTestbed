@@ -87,10 +87,10 @@ Probably more, because the above is heuristics, and only registering filedates, 
 ## Donation ware!
 (C) 2016 Andreas Krueger  
 **If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
-*And: If you do not show that - then aren't you showing that you **don't** like this?*
+*And: If you do not show that - then aren't you showing that you* **don't** *like this?*
 
 **No Coinbase account yet??** Then [use my referral](https://www.coinbase.com/join/andreaskrueger), to give me and you 10$ bonus.  
 
 ## Hire me ...
-... if you can afford me: hire (at) andreaskrueger (dot) de  
+... if you can afford me: hire (at) andreaskrueger (dot) de
 
