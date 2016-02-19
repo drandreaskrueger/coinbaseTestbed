@@ -43,7 +43,7 @@ All this is work in progress, perhaps more to come ... current version: **v09**
 Using my new tool [FiledatePunchcard](https://github.com/drandreaskrueger/FiledatePunchcard) to give a rough estimate of the time that I have invested into this. 
 
     Each 'x' represents a 30 minute block:
-    (Filled up blocks of size 6, i.e. approx 180 minutes.)
+    Filling up blocks of size 6, i.e. approx 180 minutes.
     
     2016-01-10|-----------------------------------------------x|
     2016-01-11|x                                               |
@@ -76,10 +76,19 @@ Using my new tool [FiledatePunchcard](https://github.com/drandreaskrueger/Fileda
     2016-02-07|                                                |
     2016-02-08|                                                |
     2016-02-09|                                                |
-    2016-02-10|  xxxxxxxx--------------------------------------|
+    2016-02-10|  xxxxxxxx                                      |
+    2016-02-11|                                                |
+    2016-02-12|                                                |
+    2016-02-13|                                                |
+    2016-02-14|                                                |
+    2016-02-15|                                                |
+    2016-02-16|                                                |
+    2016-02-17|                                                |
+    2016-02-18|                                                |
+    2016-02-19|                                      xxxx------|
     
-    With 30-minute blocks, the number of hours is approx 33.5
-
+    With 30-minute blocks, the number of hours is approx 35.5    
+    
 Probably more, because the above is heuristics, and only registering filedates, which are overwritten with each (non-committed) file saving. And additional to that approx. 15 hours on January 8th-10th (before I made a git committed version of this). 
 
 ## Donation ware!

@@ -6,19 +6,14 @@ Man, they are difficult ...
 --- 
 
 ## Newsflash: They've fixed it (February 10th)
-Finally - they've done it. 
+Finally - they've done it. It needed 7 interactions, and almost 3 weeks. Hard to believe.  They kept on repeating: *This has never been / is not an issue / anymore.* 
 
-It needed 7 interactions, and almost 3 weeks. Hard to believe. They kept on repeating: It has never been / is not an issue / anymore. But then they've met me \*g\*:   
+But then they've met me \*g\*:  If I had not *insisted* -fiercely- *three more times* after my initial submission - **this issue would probably have never been fixed**!
 
-If I had not *insisted* -fiercely- *three more times* after my initial submission - **this issue would probably have never been fixed**.
+Not only a strange and difficult-to-find problem - but also a strange company, really.  And penny-pinching: Over 100 mio USD of investors' hopes - but not willing to reward my good work here, not even a bit? Is that wise, rich men? **Opulence degenerates** ...
 
-Not only a strange and difficult-to-find problem - but also a strange company, really.  And ridiculously penny-pinching: Over 100 mio USD of investors' hopes - but not willing to reward my good work here, not even a bit? Is that wise?
+But all that is *their* problem. Not interested in BS. My highest goal are simply well working systems. Read it:
 
-**Opulence degenerates** ...
-
-But all that is *their* problem. Not interested in bullshit. My highest goal are well working systems. Read it:
-
----
 ---
 
 
@@ -33,8 +28,7 @@ LIVE: Running on my IP-only-droplet (at [digitalocean](https://github.com/drandr
 * http://208.68.38.174/
 
 
-
-Whew, this took me many many hours to debug. Of course, at first I supposed that *my* code is buggy. What a strange problem.  
+Now the problem is pinpointed perfectly. Whew, all this had taken me many many hours to debug. Of course, at first I supposed that *my* code is buggy. What a strange problem.  
 
 ### Symptom
 when Coinbase sends a notification callback, my django server (if in production-mode) immediately refuses it with a (400, BAD REQUEST):
@@ -71,15 +65,18 @@ Perhaps your code tries to DNS-lookup the IP address of the ``notifications_url`
 
     notifications_url='http://208.68.38.174:8000/buyme/hook/9999999876543765456/'
     
+###Security implications
+    
 Until that is solved I will have to run my server in ``DEBUG=False`` settings, of which the [django manual ](https://docs.djangoproject.com/en/1.9/ref/settings/#debug) says: "no no no!"
 
 > A boolean that turns on/off debug mode.  
 > Never deploy a site into production with DEBUG turned on.  
 > Did you catch that? NEVER deploy a site into production with DEBUG turned on.
 
-:-)  
 
-So please contact me when you have solved this. Thanks!
+So a *security implication* did exist indeed: A "domino effect security implication". Your bug forced Django apps to run with highly insecure settings. See [chapter "Bug"](https://github.com/drandreaskrueger/buyme#bug) in README of my Coinbase example app /buyme/ . That /buyme/ is actually the app with which I originally found that bug in your system.
+
+But I was told repeatedly: *No security implication*. I guess that is because only then they pay bug finding rewards? Perhaps they should reserve a second budget to reward high-quality contributions like this one, which are not money-hacking, but still are intending to improve the system. My 2 Satoshi.  
   
 
 ### The whole log:
@@ -109,4 +106,4 @@ Then, when a payment is authorized on that /checkout/ page, this arrives:
 ## Donation ware!
 (C) 2016 Andreas Krueger  
 **If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
-And: If you don't show that - then you show that you **don't** like this.
+*And if you do not show it - then ask yourself: Aren't you showing that you* **don't** *like this?*
