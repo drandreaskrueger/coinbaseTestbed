@@ -2,7 +2,7 @@
 Learning, and improving, the [Coinbase tutorial](https://developers.coinbase.com).
 
 ## Inconsistencies, typos, bugs
-I could find these bugs in the Python library, and/or the server code:   
+I could find these bugs in the Coinbase Python library, and/or their server code:   
 
 * [client.get_notifications()](bugs/get_notifications-Bug.md) - the [official code](cb/cbNotificationsBug.py) creates a ``TypeError: unhashable type: 'dict'`` 
 * [verify_callback()](bugs/verify_callback()_False.md) - missing data in their package, lack of documentation, and a bug.
@@ -11,12 +11,12 @@ I could find these bugs in the Python library, and/or the server code:
 
 *Additional to those*:
 
-* In my .py code below ... I have *caught some exceptions* caused by wrong syntax, or implementation, while I was working through your [tutorial](https://developers.coinbase.com). You'll see them either in the [source code](cb/) or in the [output](output/).
-* Please also read [my ideas](README-other-ideas.md) what else could be **useful extensions, for future versions of your API.**
+* In my .py code below ... I have *caught some exceptions* caused by wrong syntax, or implementation, while I was working through your tutorial. If you are really interested to improve your tutorial, then you can find them either in the [source code](cb/) or in the [output](output/).
+* Read [my ideas](README-other-ideas.md) what else could be **useful extensions, for future versions of your API.**
 
-I would have found more bugs, and suggestions - but I want to be appreciated too. Stopping this working-for-free now. 
+I would have found more bugs, and suggestions - but I want to be appreciated too. Stopping this working-for-free now. Donate - and I might continue.
 
-## Working code
+## Correctly working code
 The main purpose of my .py code was to try out all explained functions once, so that I  better understand the whole coinbase system. Mission accomplished. But I am publishing it now, because it might help others. Intended for:
 * Coinbase newbies: Run these one by one, to see how coinbase works. 
 * Coinbase devs: And which inconsistencies & typos I have found in the official (Python) tutorial.
@@ -85,10 +85,10 @@ Probably more, because the above is heuristics, and only registering filedates, 
 ## Donation ware!
 (C) 2016 Andreas Krueger  
 **If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
-*And: If you do not show that - then aren't you showing that you* **don't** *like this?*
+*And if you do not show it - then ask yourself: Aren't you showing that you* **don't** *like this?*
 
-**No Coinbase account yet??** Then [use my referral](https://www.coinbase.com/join/andreaskrueger), to give me and you 10$ bonus.  
+**No Coinbase account yet?** Then [use my referral](https://www.coinbase.com/join/andreaskrueger), to give me and you 10$ bonus.  
 
 ## Hire me ...
-... if you can afford me: hire (at) andreaskrueger (dot) de
+hire (at) andreaskrueger (dot) de
 

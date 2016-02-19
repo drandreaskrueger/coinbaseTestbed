@@ -96,6 +96,40 @@ Does the sandbox use a different public key?
 
 ---
 
+## Interaction
+Some of the interaction with them, 3 weeks later:
+
+> This bug is fixed as of version 2.0.4 available on pip.  
+> Can you confirm you're no longer able to reproduce this issue?
+
+Nope, the problem persists. Try this:
+
+    pip uninstall coinbase
+    pip install coinbase
+    Successfully installed coinbase-2.0.6
+
+    head -n 2 /usr/local/lib/python2.7/dist-packages/coinbase/wallet/coinbase-callback.pub 
+    -----BEGIN PUBLIC KEY-----
+    MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA9MsJBuXzFGIh/xkAA9Cy
+
+    pip install cherrypy
+    rm cbWebhookPrinter.py* -f
+    wget https://raw.githubusercontent.com/drandreaskrueger/coinbaseTestbed/master/cb/cbWebhookPrinter.py
+
+    python cbWebhookPrinter.py
+
+1) browse to 208.68.38.174  
+2) make payment with sandbox money  
+3) press reload on 208.68.38.174  
+
+The code which is verifying is here: https://github.com/drandreaskrueger/coinbaseTestbed/blob/8bbaeca60ba779d6b0990403bedb8478b538d374/cb/cbWebhookPrinter.py#L122-L123
+
+am I using it correctly? Then your package needs another edit.
+
+Thanks.
+
+---
+
 ## Donation ware!
 (C) 2016 Andreas Krueger  
 **If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
