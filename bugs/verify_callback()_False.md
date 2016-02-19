@@ -118,13 +118,15 @@ Nope, the problem persists. Try this:
 
     python cbWebhookPrinter.py
 
-1) browse to 208.68.38.174  
-2) make payment with sandbox money  
-3) press reload on 208.68.38.174  
+Or   
 
-The code which is verifying is here: https://github.com/drandreaskrueger/coinbaseTestbed/blob/8bbaeca60ba779d6b0990403bedb8478b538d374/cb/cbWebhookPrinter.py#L122-L123
+(1) browse to 208.68.38.174  
+(2) make payment with sandbox money  
+(3) press reload on 208.68.38.174  
 
-am I using it correctly? Then your package needs another edit.
+The code which is verifying is [here](https://github.com/drandreaskrueger/coinbaseTestbed/blob/8bbaeca60ba779d6b0990403bedb8478b538d374/cb/cbWebhookPrinter.py#L122-L123).
+
+Am I using it correctly? Then your package needs another edit.
 
 Thanks.
 
@@ -133,4 +135,4 @@ Thanks.
 ## Donation ware!
 (C) 2016 Andreas Krueger  
 **If you like this, show it:** [BTC] [1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC](http://blockr.io/address/info/1NvfRSDzXmwUdTjeqN8MAfmPCNHgwB8eiC)  
-And: If you don't show that - then you show that you **don't** like this.
+*And if you do not show it - then ask yourself: Aren't you showing that you* **don't** *like this?*

@@ -2,24 +2,24 @@
 Learning, and improving, the [Coinbase tutorial](https://developers.coinbase.com).
 
 ## Inconsistencies, typos, bugs
-I could find these bugs in the Coinbase Python library, and/or their server code:   
+I could find these bugs in the **Coinbase Python library** (``pip install coinbase``), and/or their server code:   
 
 * [client.get_notifications()](bugs/get_notifications-Bug.md) - the [official code](cb/cbNotificationsBug.py) creates a ``TypeError: unhashable type: 'dict'`` 
-* [verify_callback()](bugs/verify_callback()_False.md) - missing data in their package, lack of documentation, and a bug.
+* [verify_callback()](bugs/verify_callback()_False.md) - key missing in their package, lack of documentation, and a bug.
 * [invalid (empty) HOST header](bugs/HOST-header_empty.md) - Django refuses your POST requests (RFC 1034/1035). [**Fixed** - but [do read how!](bugs/HOST-header_empty.md)]
 * "[*Do you want to add it?*](bugs/Do-you-want-to-add-it_But-no-way-to-say-YES.png)" (a fee) when small amounts - but no way to answer. Clicking "Pay" doesn't work.
 
 *Additional to those*:
 
-* In my .py code below ... I have *caught some exceptions* caused by wrong syntax, or implementation, while I was working through your tutorial. If you are really interested to improve your tutorial, then you can find them either in the [source code](cb/) or in the [output](output/).
+* In my .py code below ... I have *caught most of the exceptions caused by your* wrong syntax, or implementation - while I was working through your introduction. If you are really interested to improve your tutorial, then you can find them either in the [source code](cb/) or in the [output](output/). 
 * Read [my ideas](README-other-ideas.md) what else could be **useful extensions, for future versions of your API.**
 
-I would have found more bugs, and suggestions - but I want to be appreciated too. Stopping this working-for-free now. Donate - and I might continue.
+I would have found more bugs, and suggestions - but I want to be appreciated too. Stopping this working-for-free now. Simply donate (below) - and I might continue.
 
 ## Correctly working code
-The main purpose of my .py code was to try out all explained functions once, so that I  better understand the whole coinbase system. Mission accomplished. But I am publishing it now, because it might help others. Intended for:
-* Coinbase newbies: Run these one by one, to see how coinbase works. 
-* Coinbase devs: And which inconsistencies & typos I have found in the official (Python) tutorial.
+The main purpose of all my .py code here ... was to try out all explained functions once, so that I  better understand the whole coinbase system. Mission accomplished. But I am publishing it now, because it might help others. Intended for:
+* Coinbase newbies: Run these one by one, to learn how coinbase works. 
+* Coinbase devs: Which inconsistencies & typos I have found in the official Python tutorial.
 
 Chapter by chapter:
 * [output](output/cbWallet.py.txt) of [cbWallet.py](cb/cbWallet.py) = testing: Guides ... [Create a wallet](https://developers.coinbase.com/docs/wallet/guides/bitcoin-wallet)
